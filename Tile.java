@@ -21,16 +21,25 @@ final class Tile {
 
 	// instance variables
 	// both fields are primitive types so can be declared public
-	public char character;
-	public int points; 
+	private char letter;
+	private int points; 
 	
 	// empty tile constructor
-	public Tile() { 
+	public Tile() {
+		
 	}
 	
 	// constructor
 	public Tile(char c, int p) {
-		character = c;
+		letter = c;
 		points = p;
 	}
+	
+	// return this tile's letter
+	public char getLetter() {return letter;}
+	
+	// return this tile's point value
+	public int getPoints() {return points;}
+	
+	
 }
