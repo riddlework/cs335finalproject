@@ -22,28 +22,19 @@ import java.util.ArrayList;
 public class Player {
 
 	// instance variables
-	private String name;
-	private ArrayList<Tile> hand;
-	private int score = 0;
-	private boolean isMyTurn;
-	private DrawPile dp;
+	private 	String 				name;
+	private 	ArrayList<Tile> 	hand;
+	private 	int 				score 	= 	0;
+	private 	boolean 			isMyTurn;
 	
 	
 	/*
 	 * constructor
 	 */
-	public Player(String n, DrawPile pool) throws InvalidDrawException {
-		
+	public Player(String n, ArrayList<Tile> initHand) throws InvalidDrawException {
 		name = n;
 		isMyTurn = false;
-		dp = pool;
-		
-		// call the get tile method 7 times to create the first hand of 7 tiles
-		for (int i=0; i<7; i++) { 
-			Tile cur = dp.drawTile();
-			hand.add(cur);
-		}
-		
+		hand = initHand;
 	}
 	
 	
@@ -52,13 +43,10 @@ public class Player {
 	/*
 	 * adds a tile to the players hand if the length of their hand is less than 7
 	 */
-	public void newTile() throws InvalidHandException, InvalidDrawException {
+	public void newTile(Tile newTile) throws InvalidHandException, InvalidDrawException {
 		
 		if (hand.size() >= 7) throw new InvalidHandException(name + "'s hand is already full so a Tile could not be added");
-		
-		// still need to write the get tile method in the draw pile composite class
-		else hand.add(dp.drawTile());
-		
+		else hand.add(newTile);		
 	}
 	
 	
@@ -94,5 +82,13 @@ public class Player {
 		}
 	}
 	
+	
+	
+	/*
+	 * returns the number of Tiles in the players hand 
+	 */
+	public int getSize() {
+		return hand.size();
+	}
 	
 }

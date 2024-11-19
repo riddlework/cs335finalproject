@@ -130,7 +130,7 @@ public class DrawPile {
 	 * 
 	 * @Pre : the cannot pass a number greater than what the player can hold
 	 */
-	public ArrayList<Tile> drawTile(int x) throws InvalidDrawException {
+	public ArrayList<Tile> drawTiles(int x) throws InvalidDrawException {
 		
 		ArrayList<Tile> retTiles = new ArrayList<Tile>();
 		
