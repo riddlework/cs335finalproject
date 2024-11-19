@@ -24,19 +24,9 @@ public class ScrabbleBoard extends JPanel {
         }
     }
     public  void setDefaultSquareColor(int row , int col) {
-    	// Triple Word Score squares
-    	if ((row == 0 || row == 7 || row == 14) && (col == 0  || col == 14)) {
-    	    squares[row][col].setBackground(Color.RED); // Red
-    	}
-    	// Double Word Score squares
-    	else if (!(row >= 5 && row <= 9)&&(row == col || row + col == 14 )||(row == 7 && col == 7)) {
-    	    squares[row][col].setBackground(Color.PINK); // Pink
-    	}
-    	else if ((row == 5 || row ==9 )&&(row == col || row + col == 14 )) {
-    	    squares[row][col].setBackground(Color.BLUE); // Pink
-    	}
+    	
     	// Triple Letter Score squares
-    	else if ((row == 1 || row == 13) && (col == 5 || col == 9) || 
+    	if ((row == 1 || row == 13) && (col == 5 || col == 9) || 
     	         (row == 5 || row == 9) && (col == 1 || col == 13)) {
     	    squares[row][col].setBackground(Color.BLUE); // Blue
     	}
