@@ -17,7 +17,7 @@ public class BoardSquare {
     }
 
     public char getLetter() {
-        if (tile.isPresent()) return tile.getLetter();
+        if (tile.isPresent()) return tile.get().getLetter();
         else return ' ';
     }
 

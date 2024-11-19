@@ -6,9 +6,13 @@ public class ScrabbleModel {
 
     public ScrabbleModel() {
         board = new Board();
+        p1 = Player("p1", drawPile.drawTiles(7));
+        p2 = Player("p2", drawPile.drawTiles(7));
     }
 
     // methods:
+    // validateWord
+    // placeLetter
     //
 
     public static void main(String[] args) {
