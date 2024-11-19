@@ -1,0 +1,11 @@
+/Board.class
+/BoardSquare.class
+/DrawPile.class
+/InvalidDrawException.class
+/InvalidHandException.class
+/Player.class
+/ScrabbleController.class
+/ScrabbleModel.class
+/Tile.class
+/GuiInterface.class
+/ScrabbleBoard.class
