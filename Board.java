@@ -2,13 +2,7 @@ import java.util.ArrayList;
 
 public class Board {
     private ArrayList<ArrayList<BoardSquare>> board;
-    private scoreType scoreType;
 
-    private enum scoreType {
-        NONE,
-        DOUBLE_LETTER,
-        TRIPLE_LETTER;
-    }
 
     public Board() {
         // create board
