@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 
 
-
 /*
  * Author(s): Ben Yurek
  * File: Player.java
@@ -33,7 +32,7 @@ public class Player {
 	/*
 	 * constructor
 	 */
-	public Player(String n, DrawPile pool) {
+	public Player(String n, DrawPile pool) throws InvalidDrawException {
 		
 		name = n;
 		isMyTurn = false;
@@ -53,7 +52,7 @@ public class Player {
 	/*
 	 * adds a tile to the players hand if the length of their hand is less than 7
 	 */
-	public void newTile() throws InvalidHandException {
+	public void newTile() throws InvalidHandException, InvalidDrawException {
 		
 		if (hand.size() >= 7) throw new InvalidHandException(name + "'s hand is already full so a Tile could not be added");
 		
@@ -91,15 +90,9 @@ public class Player {
 		//iterate over the tiles in that hand and print out the info for each one
 		for (int i=0; i<7; i++) {
 			Tile cur = hand.get(i);
-			System.out.println((i+1) + "Char: " + cur.character + "     Points: " + cur.points);
+			System.out.println((i+1) + "Char: " + cur.getLetter() + "     Points: " + cur.getPoints());
 		}
-		
 	}
 	
-	
-	
-	
-	
-
 	
 }
