@@ -12,8 +12,9 @@ public class BoardSquare {
         TRIPLE_LETTER;
     }
 
-    public BoardSquare() {
+    public BoardSquare(squareType type) {
         tile = Optional.empty();
+        type = squareType;
     }
 
     public char getLetter() {
