@@ -32,6 +32,7 @@ public class DrawPile {
 		HashMap<Character, Integer> initQ = new HashMap<>();
 		HashMap<Character, Integer> initP = new HashMap<>();
 		
+		
 		// create a HashMap of the quantities of each letter
 		initQ.put('a', 9);
 		initQ.put('b', 2);
@@ -88,9 +89,11 @@ public class DrawPile {
 		initP.put('y', 4);
 		initP.put('z', 10);
 		
+		pool = new ArrayList<Tile>();
 		//iterate over each key in the quantities and add the proper amount of new tiles
 		for (Character key : initQ.keySet()) {
 			Integer value = initQ.get(key);
+	
 		    for (int i = 0; i<value; i++) {
 		    	Tile curTile = new Tile(key, initP.get(key));
 		    	pool.add(curTile);
@@ -114,9 +117,7 @@ public class DrawPile {
 		Tile retTile = pool.remove(0);
 		
 		//move each tile down one index slot
-		for (int i=0; i<pool.size(); i++) {
-			pool.add(i, pool.remove(i+1));
-		}
+		for (int i=0; i<(pool.size()-1); i++) {pool.add(i, pool.remove(i+1));}
 		
 		return retTile;
 	}
@@ -143,9 +144,7 @@ public class DrawPile {
 		else {
 			
 			// add the proper number of tiles to the return list
-			for (int i=0; i<x; i++) {
-				retTiles.add(pool.get(i));
-			}
+			for (int i=0; i<x; i++) {retTiles.add(pool.get(i));}
 			
 			//move each tile down one index slot
 			for (int i=0; i < pool.size() - x; i++) {pool.add(i, pool.remove(i+x));}					

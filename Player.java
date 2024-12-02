@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 /*
@@ -89,6 +90,15 @@ public class Player {
 	 */
 	public int getSize() {
 		return hand.size();
+	}
+	
+	
+	
+	/*
+	 * Shuffles the players hand
+	 */
+	public void Shuffle() {
+		Collections.shuffle(hand);
 	}
 	
 }
