@@ -96,19 +96,22 @@ public class DrawPile {
 		    	pool.add(curTile);
 		    }
 		}
+
+		// shuffle the draw pile
+		shufflePile();
 	}	
 	
 	
 	
-	/*
+	/**
 	 * removes one tile and gives it to the player that called the method
-	 * @Returns: the first tile in the list
+	 * @return the first tile in the list
 	 * 
-	 * @Post : cannot call unless the player hand has an empty slot
+	 * @post cannot call unless the player hand has an empty slot
 	 */
 	public Tile drawTile() throws InvalidDrawException {
 		
-		if(pool.isEmpty()) throw new InvalidDrawException("Not enough Tiles left.");
+		if (pool.isEmpty()) throw new InvalidDrawException("Not enough Tiles left.");
 		
 		// get the first slot of the ArrayList to return
 		Tile retTile = pool.remove(0);
@@ -123,14 +126,14 @@ public class DrawPile {
 	
 	
 	
-	/*
+	/**
 	 * removes x tiles and gives them to the player that called the method
-	 * @Param: x = number of tiles to return
-	 * @Returns: an ArrayList of x tiles
+	 * @param x = number of tiles to return
+	 * @returns an ArrayList of x tiles
 	 * 
-	 * @Pre : the cannot pass a number greater than what the player can hold
+	 * @pre cannot pass a number greater than what the player can hold
 	 */
-	public ArrayList<Tile> drawTile(int x) throws InvalidDrawException {
+	public ArrayList<Tile> drawTiles(int x) throws InvalidDrawException {
 		
 		ArrayList<Tile> retTiles = new ArrayList<Tile>();
 		
@@ -160,7 +163,7 @@ public class DrawPile {
 	 * shuffle the draw pile 
 	 * probably will never use this method
 	 */
-	public void shufflePile() {
+	private void shufflePile() {
 		Collections.shuffle(pool);
 	}
 	

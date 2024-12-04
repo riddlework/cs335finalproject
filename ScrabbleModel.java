@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ScrabbleModel {
     private Board board;
     private Player p1;
@@ -6,14 +8,35 @@ public class ScrabbleModel {
 
     public ScrabbleModel() {
         board = new Board();
-        p1 = Player("p1", drawPile.drawTiles(7));
-        p2 = Player("p2", drawPile.drawTiles(7));
+        try {
+            p1 = Player("p1", drawPile.drawTiles(7));
+            p2 = Player("p2", drawPile.drawTiles(7));
+        } catch (InvalidDrawException e) {
+
+        }
+
     }
 
     // methods:
     // validateWord
     // placeLetter
     //
+
+    public void validateWords(int x1, int y1, int x2, int y2) throws InvalidPlacementException {
+        ArrayList<String> words = new ArrayList<>();
+        // check whether the given string is valid
+        if (x1 == x2) {
+            // vertical word
+            String vWord = "";
+            for (int i = y1; i <= y2 ; i++) {
+                vWord += board.
+            }
+
+        } else {
+            // horizontal word
+
+        }
+    }
 
     public static void main(String[] args) {
 

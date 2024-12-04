@@ -26,41 +26,32 @@ public class Player {
 	private ArrayList<Tile> hand;
 	private int score = 0;
 	private boolean isMyTurn;
-	private DrawPile dp;
 	
 	
 	/*
 	 * constructor
 	 */
-	public Player(String n, DrawPile pool) throws InvalidDrawException {
-		
-		name = n;
-		isMyTurn = false;
-		dp = pool;
-		
-		// call the get tile method 7 times to create the first hand of 7 tiles
-		for (int i=0; i<7; i++) { 
-			Tile cur = dp.drawTile();
-			hand.add(cur);
-		}
-		
+	public Player(String n, ArrayList<Tile> hand) throws InvalidDrawException {
+		this.name = n;
+		this.isMyTurn = false;
+		this.hand = hand;
 	}
 	
 	
 	
 	
-	/*
-	 * adds a tile to the players hand if the length of their hand is less than 7
-	 */
-	public void newTile() throws InvalidHandException, InvalidDrawException {
-		
-		if (hand.size() >= 7) throw new InvalidHandException(name + "'s hand is already full so a Tile could not be added");
-		
-		// still need to write the get tile method in the draw pile composite class
-		else hand.add(dp.drawTile());
-		
-	}
-	
+//	/*
+//	 * adds a tile to the players hand if the length of their hand is less than 7
+//	 */
+//	public void newTile() throws InvalidHandException, InvalidDrawException {
+//
+//		if (hand.size() >= 7) throw new InvalidHandException(name + "'s hand is already full so a Tile could not be added");
+//
+//		// still need to write the get tile method in the draw pile composite class
+//		else hand.add(dp.drawTile());
+//
+//	}
+//
 	
 	
 	/*
