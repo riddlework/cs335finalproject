@@ -60,17 +60,17 @@ public class Board {
 
     
     // add tile to the board
-    public void addTile(Optional<Tile> tile, int x, int y) {
+    public void addTile(Tile tile, int x, int y) {
     	board.get(x).get(y).setTile(tile);
     }
     
     //remove tile from the board
-    public Optional<Tile> removeTile(int x, int y) {
+    public Tile removeTile(int x, int y) {
     	return board.get(x).get(y).removeTile();
     }
     
     
-    public Optional<Tile> readTile(int x, int y) {
+    public Tile readTile(int x, int y) {
     	return board.get(x).get(y).readTile();
     }
     

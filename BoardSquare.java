@@ -17,22 +17,22 @@ public class BoardSquare {
     }
     
     //adds tile to the board at this coordinate
-    public void setTile(Optional<Tile> tile) {
+    public void setTile(Tile tile) {
     	this.tile = tile;
     }
     
     // removes tile and returns it
-    public Optional<Tile> removeTile() {
-    	Optional<Tile> temp = tile;
-    	tile = Optional.empty();
+    public Tile removeTile() {
+    	Tile temp = tile;
+    	tile = null;
     	return temp;
     }
     
     //returns tile without removing
-    public Optional<Tile> readTile() {
+    public Tile readTile() {
     	return tile;
     }
-
+    
 }
 
 
