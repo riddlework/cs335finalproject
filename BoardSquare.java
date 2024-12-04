@@ -6,35 +6,33 @@ public class BoardSquare {
     private squareType type;
 
    
-
+    // constructor
     public BoardSquare() {
         tile = Optional.empty();
         type = squareType.NONE;
     }
     
-    
+    // sets the point multiplier type
     public void setType(squareType type) {
     	this.type = type;
     }
     
-    
+    //adds tile to the board at this coordinate
     public void setTile(Optional<Tile> tile) {
     	this.tile = tile;
     }
     
-    
+    // removes tile and returns it
     public Optional<Tile> removeTile() {
     	Optional<Tile> temp = tile;
     	tile = Optional.empty();
     	return temp;
     }
     
-
-    public char getLetter() {
-        if (tile.isPresent()) return tile.get().getLetter();
-        else return ' ';
+    //returns tile without removing
+    public Optional<Tile> readTile() {
+    	return tile;
     }
-
 
 }
 

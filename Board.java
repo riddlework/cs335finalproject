@@ -69,4 +69,11 @@ public class Board {
     	return board.get(x).get(y).removeTile();
     }
     
+    
+    public Optional<Tile> readTile(int x, int y) {
+    	return board.get(x).get(y).readTile();
+    }
+    
+    
+    
 }
