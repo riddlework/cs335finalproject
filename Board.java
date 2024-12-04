@@ -60,8 +60,8 @@ public class Board {
 
     
     // add tile to the board
-    public void addTile(Tile tile, int x, int y) {
-    	board.get(x).get(y).addTile(tile);
+    public void addTile(Optional<Tile> tile, int x, int y) {
+    	board.get(x).get(y).setTile(tile);
     }
     
     //remove tile from the board
