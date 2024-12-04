@@ -32,6 +32,36 @@ public class BoardSquare {
     public Tile readTile() {
     	return tile;
     }
+
+    //returns boolean if there is a tile on this square
+    public boolean hasTile() {
+    	if (tile != null) {return true;}
+    	return false;
+    }
+    
+    
+    /* 
+     * @Pre : has a tile.
+     * @Post : will return the score with the multiplier added
+     */
+    public int getScore() {   	
+    	assert(hasTile());
+ 
+    	int score = 0; 
+    	if (type == squareType.DOUBLE_LETTER) {
+    		score += (2*tile.getPoints());
+    		type = squareType.NONE;
+    	}
+    	else if (type == squareType.TRIPLE_LETTER) {
+    		score += (3*tile.getPoints());
+    		type = squareType.NONE;
+    	}
+    	else {
+    		score += tile.getPoints();
+    	}
+    	
+    	return score;
+    }
     
 }
 

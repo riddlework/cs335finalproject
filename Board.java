@@ -75,5 +75,9 @@ public class Board {
     }
     
     
+    public int getScore(int x, int y) {
+    	return board.get(x).get(y).getScore();
+    }
+    
     
 }
