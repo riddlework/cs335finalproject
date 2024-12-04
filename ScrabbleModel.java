@@ -29,13 +29,16 @@ public class ScrabbleModel {
             // vertical word
             String vWord = "";
             for (int i = y1; i <= y2 ; i++) {
-                vWord += board.
+                Tile tile = board.readTile(x1,i);
+                vWord += board.readTile(x1,i)
             }
 
         } else {
             // horizontal word
 
         }
+
+        // remember to calculate the points too
     }
 
     public static void main(String[] args) {
