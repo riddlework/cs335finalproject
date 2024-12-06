@@ -36,10 +36,10 @@ final class Tile {
 	}
 	
 	// return this tile's letter
-	public char getLetter() {return letter;}
+	public char getLetter() { return letter; }
 	
 	// return this tile's point value
-	public int getPoints() {return points;}
+	public int getPoints() { return points; }
 	
 	
 }

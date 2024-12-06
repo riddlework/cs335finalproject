@@ -31,7 +31,7 @@ public class Player {
 	/*
 	 * constructor
 	 */
-	public Player(String n, ArrayList<Tile> hand) throws InvalidDrawException {
+	public Player(String n, ArrayList<Tile> hand) {
 		this.name = n;
 		this.isMyTurn = false;
 		this.hand = hand;

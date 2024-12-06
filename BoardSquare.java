@@ -35,14 +35,14 @@ public class BoardSquare {
 
     //returns boolean if there is a tile on this square
     public boolean hasTile() {
-    	if (tile != null) {return true;}
+    	if (tile != null) return true;
     	return false;
     }
     
     
-    /* 
-     * @Pre : has a tile.
-     * @Post : will return the score with the multiplier added
+    /**
+     * @pre : has a tile.
+     * @post : will return the score with the multiplier added
      */
     public int getScore() {   	
     	assert(hasTile());
@@ -51,16 +51,17 @@ public class BoardSquare {
     	if (type == squareType.DOUBLE_LETTER) {
     		score += (2*tile.getPoints());
     		type = squareType.NONE;
-    	}
-    	else if (type == squareType.TRIPLE_LETTER) {
+    	} else if (type == squareType.TRIPLE_LETTER) {
     		score += (3*tile.getPoints());
     		type = squareType.NONE;
-    	}
-    	else {
+    	} else {
     		score += tile.getPoints();
-    	}
-    	
-    	return score;
+    	} return score;
+    }
+
+    public char getLetter() {
+        assert(hasTile());
+        return this.tile.getLetter();
     }
     
 }

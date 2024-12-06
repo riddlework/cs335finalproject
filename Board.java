@@ -56,6 +56,8 @@ public class Board {
         board.get(9).get(13).setType(squareType.TRIPLE_LETTER);
         board.get(13).get(5).setType(squareType.TRIPLE_LETTER);
         board.get(13).get(9).setType(squareType.TRIPLE_LETTER);
+
+        board.get(7).get(7).setType(squareType.CENTER);
     }
 
     
@@ -72,6 +74,10 @@ public class Board {
     
     public Tile readTile(int x, int y) {
     	return board.get(x).get(y).readTile();
+    }
+
+    public BoardSquare getBoardSquare(int x, int y) {
+        return board.get(x).get(y);
     }
     
     
