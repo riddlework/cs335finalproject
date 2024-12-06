@@ -55,6 +55,7 @@ public class ScrabbleBoard extends JPanel {
 
     public void placeTile(int row, int col, char letter) {
         squares[row][col].setText(String.valueOf(letter));
+        
     }
 
     public void clearSquare(int row, int col) {
