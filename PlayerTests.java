@@ -73,5 +73,11 @@ class PlayerTests {
 	}
 	
 	
+	@Test
+	void testPrintHand() {
+		player1.printHand();
+	}
+	
+	
 
 }

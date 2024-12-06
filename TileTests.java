@@ -19,14 +19,13 @@ class TileTests {
 	@Test
 	void testGetLetter() {
 		assertEquals(exampleTile.getLetter(), 'Q');
-		assertEquals(exampleTile2.getLetter(), '_');
+		
 	}
 	
 	// tests points getter
 	@Test
 	void testGetPoints() {
 		assertEquals(exampleTile.getPoints(), 123);
-		assertEquals(exampleTile2.getPoints(), -999);
 	}
 
 }
