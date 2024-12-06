@@ -22,7 +22,7 @@ import java.util.Map;
 public class DrawPile {
 
 	// instance variables
-	private		ArrayList<Tile>					pool;
+	private		ArrayList<Tile>		pool;
 	
 	/*
 	 * constructor 
@@ -190,6 +190,15 @@ public class DrawPile {
 	}
 	
 	
+	
+	/*
+	 * add tiles back to the draw pile pool from a players hand
+	 */
+	public void addTiles(ArrayList<Tile> tiles) {
+		for (Tile t : tiles) {
+			pool.add(t);
+		}
+	}
 	
 	
 	
