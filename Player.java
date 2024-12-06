@@ -22,18 +22,19 @@ import java.util.ArrayList;
 public class Player {
 
 	// instance variables
-	private String name;
 	private ArrayList<Tile> hand;
 	private int score = 0;
 	private boolean isMyTurn;
+	private String name;
 	
 	
 	/*
 	 * constructor
 	 */
-	public Player(String n, ArrayList<Tile> hand) {
+	public Player(String name, ArrayList<Tile> hand) {
 		this.isMyTurn = false;
 		this.hand = hand;
+		this.name = name;
 	}
 	
 	

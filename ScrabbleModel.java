@@ -15,13 +15,15 @@ public class ScrabbleModel {
         initDictionary();
 
         board = new Board();
+        drawPile = new DrawPile();
         try {
-            p1 = Player(drawPile.drawTiles(7));
-            p2 = Player(drawPile.drawTiles(7));
+            ArrayList<Tile> p1Rack = drawPile.drawTiles(7);
+            ArrayList<Tile> p2Rack = drawPile.drawTiles(7);
+            p1 = new Player("p1", p1Rack);
+            p2 = new Player("p2", p2Rack);
         } catch (InvalidDrawException e) {
-
+            System.out.println("No tiles. Please initialize the draw pile first!");
         }
-
     }
 
     // initialize the dictionary that is used to validate the words
