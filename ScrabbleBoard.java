@@ -3,9 +3,10 @@ import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
 
-private boolean isFirstTurn = true;  // Tracks if it's the first turn of the game
 
 public class ScrabbleBoard extends JPanel {
+    private boolean isFirstTurn = true;  // Tracks if it's the first turn of the game
+
     private static final int BOARD_SIZE = 15;
     private JButton[][] squares = new JButton[BOARD_SIZE][BOARD_SIZE];
     private JButton selectedTile = null;
