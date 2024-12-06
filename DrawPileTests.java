@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -56,6 +58,18 @@ class DrawPileTests {
 	}
 	
 	
+	@Test
+	void testAddTiles() {
+		assertEquals(testPile.getSize(), 98);
+		
+		ArrayList<Tile> list = new ArrayList<>();
+		list.add(new Tile('!', 1));
+		list.add(new Tile('@', 2));
+		list.add(new Tile('#', 3));
+		
+		testPile.addTiles(list);
+		assertEquals(testPile.getSize(), 101);
+	}
 	
 	
 	
