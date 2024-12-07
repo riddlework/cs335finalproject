@@ -330,6 +330,14 @@ public class ScrabbleModel {
     public int getPlayerTwoScore() {
         return p2.getScore();
     }
+
+    public ArrayList<Tile> getPlayerOneHand() {
+        return p1.getHand();
+    }
+
+    public ArrayList<Tile> getPlayerTwoHand() {
+        return p2.getHand();
+    }
     	
     	
 }
