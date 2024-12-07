@@ -9,16 +9,17 @@ import java.util.Stack;
   // Tracks if it's the first turn of the game
 
 public class ScrabbleGUI extends JPanel {
-	private boolean isFirstTurn = true;
+	private static boolean isFirstTurn = true;
     private static final int BOARD_SIZE = 15;
     private static JButton[][] squares = new JButton[BOARD_SIZE][BOARD_SIZE];
-    private JButton selectedTile = null;
-    private boolean isPlacingTile = false;
+    private static JButton[] rack = new JButton[7];
+    private static JButton selectedTile = null;
+    private static boolean isPlacingTile = false;
     private static HashMap<Point, Character> justPlacedTiles = new HashMap<Point, Character>();
     private static Stack<Point> justPlacedPoints = new Stack<Point>();
-    private JPanel rackPanel;
-    private JTextArea gameLog;
-    private JPanel scorePanel;
+    private static JPanel rackPanel;
+    private static JTextArea gameLog;
+    private static JPanel scorePanel;
 
     public ScrabbleGUI() {
         setLayout(new GridLayout(BOARD_SIZE, BOARD_SIZE));
@@ -153,11 +154,11 @@ public class ScrabbleGUI extends JPanel {
     }
 
 
-    public void updateGameLog(String message) {
+    public static void updateGameLog(String message) {
         gameLog.append(message + "\n");
     }
 
-    public void updateScores(int player1Score, int player2Score) {
+    public static void updateScores(int player1Score, int player2Score) {
         Component[] components = scorePanel.getComponents();
         if (components[0] instanceof JLabel) {
             ((JLabel)components[0]).setText("Player 1 Score: " + player1Score);
@@ -249,10 +250,12 @@ public class ScrabbleGUI extends JPanel {
 
         JPanel rackPanel = new JPanel();
         rackPanel.setLayout(new GridLayout(1, 7));
+        
         for (int i = 0; i < 7; i++) {
             JButton tile = new JButton(" ");
             tile.setFont(new Font("Arial", Font.BOLD, 16));
             rackPanel.add(tile);
+            rack[i] = tile;
         }
         frame.add(rackPanel, BorderLayout.SOUTH);
         gui.rackPanel = rackPanel;
@@ -274,6 +277,31 @@ public class ScrabbleGUI extends JPanel {
         JButton shuffleButton = new JButton("Shuffle Rack");
         JButton skipTurnButton = new JButton("Skip Turn");
         JButton endGameButton = new JButton("End Game");
+        endGameButton.addActionListener(e -> {
+        	int getWinner = 1;
+        	if (getWinner == 0) {
+        		updateGameLog("The game has ended in a tie!");
+        	}
+        	if (getWinner == 1) {
+        		updateGameLog("Player 1 Wins!");
+        	}
+        	if (getWinner == 2) {
+        		updateGameLog("Player 2 Wins!");
+        	}
+        	for (int i = 0; i < 15; i++) {
+        		for (int j = 0; j < 15; j++) {
+        			squares[i][j].setEnabled(false);
+        		}
+        	}
+        	for (int i = 0; i < 7; i++) {
+        		rack[i].setEnabled(false);
+        	}
+        	shuffleButton.setEnabled(false);
+        	submitButton.setEnabled(false);
+        	skipTurnButton.setEnabled(false);
+        	endGameButton.setEnabled(false);
+        	
+        });
 
         submitButton.setMargin(new Insets(10, 10, 10, 10));
         shuffleButton.setMargin(new Insets(10, 10, 10, 10));
