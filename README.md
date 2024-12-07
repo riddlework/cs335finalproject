@@ -1,10 +1,10 @@
-### SCRABBLE
+# SCRABBLE
 ## CSC 335 FINAL PROJECT
 
-# Authors
+### Authors
 Ben Yurek, Maria Fay Garcia, Lucas Dargert, Mohamed Diakhate
 
-# Overview
+## Overview
 In our Scrabble, two players take turns placing tiles bearing single
 letters onto a game board divided into a 15x15 grid of squares.
 
@@ -21,7 +21,7 @@ any modifiers like double- or triple-letter scores.
 The game ends when all letters have been drawn and one player uses
 their last letter or all possible plays have been made.
 
-# How to run our code:
+## How to run our code:
 
 Compile the Scrabble game by running `javac *.java`. Run the game
 by running `java ScrabbleGUI.java`.
