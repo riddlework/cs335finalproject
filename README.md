@@ -4,6 +4,9 @@
 ### Authors
 Ben Yurek, Maria Fay Garcia, Lucas Dargert, Mohamed Diakhate
 
+## Presentation Link
+https://youtu.be/944wSLjYDgQ
+
 ## Overview
 In our Scrabble, two players take turns placing tiles bearing single
 letters onto a game board divided into a 15x15 grid of squares.
