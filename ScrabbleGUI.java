@@ -1,3 +1,9 @@
+/*
+ * Authors: Lucas Dargert, Fay Garcia, Ben Yurek, Mohammed Diakhate
+ * 
+ */
+
+
 package leetcode;
 import javax.swing.*;
 import java.awt.*;
