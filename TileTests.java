@@ -7,21 +7,21 @@ class TileTests {
 
 	Tile exampleTile;
 	Tile exampleTile2;
-	
+
 	@BeforeEach
 	void setUp() throws Exception {
 		exampleTile = new Tile('Q', 123);
 		exampleTile2 = new Tile();
 	}
 
-	
+
 	// tests letter getter
 	@Test
 	void testGetLetter() {
 		assertEquals(exampleTile.getLetter(), 'Q');
 		
 	}
-	
+
 	// tests points getter
 	@Test
 	void testGetPoints() {
