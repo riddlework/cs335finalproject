@@ -9,7 +9,7 @@ public class ScrabbleModel {
     private Board board;
     private Player p1;
     private Player p2;
-    private boolean curPlayerFlag; // true if p1, false if p2
+    private Player curPlayer; // current player
     private DrawPile drawPile;
     private ArrayList<String> dictionary;
 
@@ -117,6 +117,16 @@ public class ScrabbleModel {
         } return true;
     }
 
+//    private int calculateScore(int x1, int y1, int x2, int y2) {
+//        int score = 0;
+//        if (x1 == x2) {
+//            // horizontal word
+//
+//        } else {
+//
+//        }
+//    }
+
     private int findGap(int x, int y, int x_vec, int y_vec) {
         while(board.getBoardSquare(x,y).hasTile()) {
             x = x + x_vec;
@@ -127,7 +137,7 @@ public class ScrabbleModel {
     }
 
 
-    public String buildWord(int x1, int x2, int y1, int y2) {
+    private String buildWord(int x1, int x2, int y1, int y2) {
         String word = "";
         if (x1 == x2) {
             // vertical word
@@ -147,10 +157,6 @@ public class ScrabbleModel {
 
     // returns whether placement was invalid or not--if invalid it is still the given player's turn
     public boolean playerTurn(HashMap<Point,Character> placementInfo) {
-        Player curPlayer;
-        if (this.curPlayerFlag) curPlayer = p1;
-        else curPlayer = p2;
-
 
         // add tiles to the board from the players hand
         ArrayList<Point> coords = new ArrayList<>();
@@ -198,10 +204,6 @@ public class ScrabbleModel {
     }
 
     public void swapTiles(ArrayList<Character> tilesToBeSwapped) {
-        Player curPlayer;
-        if (curPlayerFlag) curPlayer = p1;
-        else curPlayer = p2;
-
         for (Character letter: tilesToBeSwapped) {
             try {
                 curPlayer.replaceTileByLetter(letter, drawPile.drawTile());
@@ -211,7 +213,14 @@ public class ScrabbleModel {
         }
     }
 
-    public void switchPlayers() { this.curPlayerFlag = !this.curPlayerFlag; }
+    // shuffle player tiles
+    // get player scores
+    // get player hand
+
+    public void switchPlayers() {
+        if (curPlayer == p1) curPlayer = p2;
+        else curPlayer = p1;
+    }
 
 }
 
