@@ -126,15 +126,67 @@ public class ScrabbleModel {
         } return true;
     }
 
-//    private int calculateScore(int x1, int y1, int x2, int y2) {
-//        int score = 0;
-//        if (x1 == x2) {
-//            // horizontal word
-//
-//        } else {
-//
-//        }
-//    }
+    private int calculateScore(int x1, int y1, int x2, int y2) {
+        int score = 0;
+        int ts, te;
+        if (x1 == x2) {
+            // vertical word
+
+            // find the start, end of the word
+            ts = findGap(x1, y1, 0, -1);
+            te = findGap(x1, y2, 0, 1);
+
+            // add the score of the word to the total score
+            score += getWordScore(x1, ts, x1, te);
+
+            // add the scores of the crosswords
+            for (int y = y1; y <= y2; y++) {
+                // find the start, end of the word
+                ts = findGap(x1, y, -1, 0);
+                te = findGap(x1, y, 1, 0);
+
+                // build the word and check if it is valid
+                if (ts != te) score += getWordScore(x1, ts, x2, te);
+            }
+
+        } else {
+            // horizontal placement
+
+            // find the start, end of the word
+            ts = findGap(x1, y1, -1, 0);
+            te = findGap(x2, y1, 1, 0);
+
+            // build the word and check if it is valid
+            score += getWordScore(ts, y1, te, x1);
+
+            // check cross words
+            for (int x = x1; x <= x2; x++) {
+                // find the start, end of the word
+                ts = findGap(x, y1, 0, -1);
+                te = findGap(x, y1, 0, 1);
+
+                // build the word and check if it is valid
+                if (ts != te)  score += getWordScore(ts, y1, te, y2);
+            }
+        } return score;
+    }
+
+    private int getWordScore(int x1, int x2, int y1, int y2) {
+        int score = 0;
+        if (x1 == x2) {
+            // vertical word
+            for (int i = y1; i <= y2; i++) {
+                BoardSquare bs = board.getBoardSquare(x1,i);
+                score += bs.getScore();
+            }
+        } else {
+            // horizontal word
+            for (int i = x1; i <= x2; i++) {
+                BoardSquare bs = board.getBoardSquare(y1,i);
+                score += bs.getScore();
+            }
+        } return score;
+    }
 
     private int findGap(int x, int y, int x_vec, int y_vec) {
         while(board.getBoardSquare(x,y).hasTile()) {
