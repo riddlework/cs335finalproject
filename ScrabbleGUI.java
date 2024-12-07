@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 
   // Tracks if it's the first turn of the game
 
@@ -12,7 +13,7 @@ public class ScrabbleGUI extends JPanel {
     private JButton[][] squares = new JButton[BOARD_SIZE][BOARD_SIZE];
     private JButton selectedTile = null;
     private boolean isPlacingTile = false;
-    private List<Point> currentWordTiles = new ArrayList<>();
+    private HashMap<Point, Character> justPlacedTiles = new HashMap<Point, Character>();
     private JPanel rackPanel;
     private JTextArea gameLog;
     private JPanel scorePanel;
@@ -37,9 +38,12 @@ public class ScrabbleGUI extends JPanel {
                 	
                 }
                 JButton temp = squares[row][col];
+                Point newPoint = new Point(row, col);
+                Character character = 'C';
                 temp.addActionListener(e -> {
-                	temp.setText("C");
+                	temp.setText(Character.toString(character));
                 	setSurroundingTiles(squares, temp);
+                	justPlacedTiles.put(newPoint, character);
                 });
             }
         }
@@ -206,6 +210,7 @@ public class ScrabbleGUI extends JPanel {
         }
         frame.add(rackPanel, BorderLayout.SOUTH);
         gui.rackPanel = rackPanel;
+        
 
         JPanel sidePanel = new JPanel();
         sidePanel.setLayout(new BorderLayout());
@@ -215,6 +220,10 @@ public class ScrabbleGUI extends JPanel {
         controlPanel.setLayout(new GridLayout(4, 1));
         
         JButton submitButton = new JButton("Submit Word");
+        submitButton.addActionListener(e -> {
+        	
+        });
+        
         JButton shuffleButton = new JButton("Shuffle Rack");
         JButton skipTurnButton = new JButton("Skip Turn");
         JButton endGameButton = new JButton("End Game");
