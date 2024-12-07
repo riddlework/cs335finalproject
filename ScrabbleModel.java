@@ -144,6 +144,7 @@ public class ScrabbleModel {
         } return word;
     }
 
+
     // returns whether placement was invalid or not--if invalid it is still the given player's turn
     public boolean playerTurn(HashMap<Point,Character> placementInfo) {
         Player curPlayer;
@@ -208,7 +209,6 @@ public class ScrabbleModel {
                 System.out.println("No more tiles! Draw pile is empty.");
             }
         }
-
     }
 
     public void switchPlayers() { this.curPlayerFlag = !this.curPlayerFlag; }
