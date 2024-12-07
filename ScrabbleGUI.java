@@ -53,6 +53,7 @@ public class ScrabbleGUI extends JPanel {
                     	justPlacedTiles.put(newPoint, selectedTile.getText().charAt(0));
                     	justPlacedPoints.add(newPoint);
                     	selectedTile.setEnabled(false);
+                    	
                     	selectedTile = null;
                 	}
                 });
@@ -202,7 +203,9 @@ public class ScrabbleGUI extends JPanel {
         }
         frame.add(rackPanel, BorderLayout.SOUTH);
         gui.rackPanel = rackPanel;
-        
+        currentPlayerHand = controller.getCurPlayerHand();
+    	setHand();
+    	
 
         JPanel sidePanel = new JPanel();
         sidePanel.setLayout(new BorderLayout());
@@ -227,6 +230,7 @@ public class ScrabbleGUI extends JPanel {
         JButton shuffleButton = new JButton("Shuffle Rack");
         shuffleButton.addActionListener(e -> {
         	controller.shufflePlayerHand();
+        	Collections.shuffle(currentPlayerHand);
         	setHand();
         });
         
