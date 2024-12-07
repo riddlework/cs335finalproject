@@ -16,7 +16,7 @@ public class ScrabbleModel {
 
     public ScrabbleModel() {
         // initialize dictionary
-        initDictionary();
+        dictionary = initDictionary();
 
         board = new Board();
         drawPile = new DrawPile();
@@ -37,13 +37,15 @@ public class ScrabbleModel {
     }
 
     // initialize the dictionary that is used to validate the words
-    private void initDictionary() {
+    private ArrayList<String> initDictionary() {
+    	ArrayList<String> newDict = new ArrayList<>();
         try {
             Scanner inputScanner = new Scanner(new File("dictionary.txt"));
-            while (inputScanner.hasNext()) dictionary.add(inputScanner.nextLine());
+            while (inputScanner.hasNext()) newDict.add(inputScanner.nextLine());
         } catch (FileNotFoundException e) {
             System.out.println("No such file exists!");
         }
+        return newDict;
     }
 
     public boolean isValidPlacement(int x1, int y1, int x2, int y2) {
