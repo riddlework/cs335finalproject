@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
   // Tracks if it's the first turn of the game
 
-public class ScrabbleBoard extends JPanel {
+public class ScrabbleGUI extends JPanel {
 	private boolean isFirstTurn = true;
     private static final int BOARD_SIZE = 15;
     private JButton[][] squares = new JButton[BOARD_SIZE][BOARD_SIZE];
@@ -17,7 +17,7 @@ public class ScrabbleBoard extends JPanel {
     private JTextArea gameLog;
     private JPanel scorePanel;
 
-    public ScrabbleBoard() {
+    public ScrabbleGUI() {
         setLayout(new GridLayout(BOARD_SIZE, BOARD_SIZE));
         initializeBoard();
         setPreferredSize(new Dimension(600, 600));
@@ -194,8 +194,8 @@ public class ScrabbleBoard extends JPanel {
         JFrame frame = new JFrame("Scrabble");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        ScrabbleBoard board = new ScrabbleBoard();
-        frame.add(board, BorderLayout.CENTER);
+        ScrabbleGUI gui = new ScrabbleGUI();
+        frame.add(gui, BorderLayout.CENTER);
 
         JPanel rackPanel = new JPanel();
         rackPanel.setLayout(new GridLayout(1, 7));
@@ -205,7 +205,7 @@ public class ScrabbleBoard extends JPanel {
             rackPanel.add(tile);
         }
         frame.add(rackPanel, BorderLayout.SOUTH);
-        board.rackPanel = rackPanel;
+        gui.rackPanel = rackPanel;
 
         JPanel sidePanel = new JPanel();
         sidePanel.setLayout(new BorderLayout());
@@ -238,14 +238,14 @@ public class ScrabbleBoard extends JPanel {
         gameLog.setWrapStyleWord(true);
         gameLog.setBorder(BorderFactory.createLineBorder(Color.GRAY,2));
         sidePanel.add(gameLog, BorderLayout.CENTER);
-        board.gameLog = gameLog;
+        gui.gameLog = gameLog;
         
         JPanel scorePanel = new JPanel();
         scorePanel.setLayout(new GridLayout(2, 1));
         scorePanel.add(new JLabel("Player 1 Score: "));
         scorePanel.add(new JLabel("Player 2 Score: "));
         sidePanel.add(scorePanel, BorderLayout.SOUTH);
-        board.scorePanel = scorePanel;
+        gui.scorePanel = scorePanel;
 
         frame.add(sidePanel, BorderLayout.EAST);
 
