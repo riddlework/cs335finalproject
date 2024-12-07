@@ -34,13 +34,17 @@ final class Tile {
 	/**
 	 * return the tile's letter--a char
 	 */
-	public char getLetter() { return letter; }
+	public char getLetter() {
+		return letter;
+	}
 
 	/**
 	 * return the integer point value of the tile
 	 * @return an integer--the point value of the tile
 	 */
-	public int getPoints() { return points; }
+	public int getPoints() {
+		return points;
+	}
 }
 
 

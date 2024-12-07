@@ -98,7 +98,9 @@ public class DrawPile {
 	 * Return the number of tiles in the drawpile
 	 * @return An integer--the number of tiles in the drawpile
 	 */
-	public int getSize() { return pool.size(); }
+	public int getSize() {
+		return pool.size();
+	}
 
 	/**
 	 * removes one tile and returns it to the player that called the method

@@ -21,7 +21,7 @@ any modifiers like double- or triple-letter scores.
 The game ends when all letters have been drawn and one player uses
 their last letter or all possible plays have been made.
 
-## How to run our code:
+## How to run our code
 
 Compile the Scrabble game by running `javac *.java`. Run the game
 by running `java ScrabbleGUI.java`.
