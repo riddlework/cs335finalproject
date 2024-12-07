@@ -29,12 +29,16 @@ public class ScrabbleController {
         return model.getPlayerTwoScore();
     }
 
-    public ArrayList<Tile> getPlayerOneHand() {
-        return model.getPlayerOneHand();
+    public ArrayList<Tile> getCurPlayerHand() {
+        return model.getCurPlayerHand();
     }
 
-    public ArrayList<Tile> getPlayerTwoHand() {
-        return model.getPlayerTwoHand();
+    public void switchPlayers() {
+        model.switchPlayers();
+    }
+
+    public void shufflePlayerHand() {
+        model.shufflePlayerHand();
     }
 }
 

@@ -290,8 +290,8 @@ public class ScrabbleModel {
     }
     
     
-    public void shufflePlayerHand(Player player) {
-    	player.shuffleHand();
+    public void shufflePlayerHand() {
+    	curPlayer.shuffleHand();
     }
     
     
@@ -331,12 +331,8 @@ public class ScrabbleModel {
         return p2.getScore();
     }
 
-    public ArrayList<Tile> getPlayerOneHand() {
-        return p1.getHand();
-    }
-
-    public ArrayList<Tile> getPlayerTwoHand() {
-        return p2.getHand();
+    public ArrayList<Tile> getCurPlayerHand() {
+        return curPlayer.getHand();
     }
     	
     	
