@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ScrabbleModel {
@@ -27,6 +28,12 @@ public class ScrabbleModel {
         } catch (InvalidDrawException e) {
             System.out.println("No tiles. Please initialize the draw pile first!");
         }
+
+        // choose random first player
+        Random rand = new Random();
+        int randInt = rand.nextInt(2) + 1;
+        if (randInt == 1) curPlayer = p1;
+        else curPlayer = p2;
     }
 
     // initialize the dictionary that is used to validate the words
