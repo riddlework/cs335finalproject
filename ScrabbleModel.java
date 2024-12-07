@@ -1,12 +1,15 @@
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class ScrabbleModel {
     private Board board;
     private Player p1;
     private Player p2;
+    private boolean curPlayerFlag; // true if p1, false if p2
     private DrawPile drawPile;
     private ArrayList<String> dictionary;
 
@@ -141,26 +144,76 @@ public class ScrabbleModel {
         } return word;
     }
 
+    // returns whether placement was invalid or not--if invalid it is still the given player's turn
+    public boolean playerTurn(HashMap<Point,Character> placementInfo) {
+        Player curPlayer;
+        if (this.curPlayerFlag) curPlayer = p1;
+        else curPlayer = p2;
 
 
+        // add tiles to the board from the players hand
+        ArrayList<Point> coords = new ArrayList<>();
+        ArrayList<Character> letters = new ArrayList<>();
+        for (Point p: placementInfo.keySet()) {
+            coords.add(p);
+            letters.add(placementInfo.get(p));
 
-//    public void calculateScore(int x1, int y1, int x2, int y2) {
-//
-//    }
+            Character letter = placementInfo.get(p);
+            Tile tileToAdd = p2.getTileByLetter(letter);
+            board.addTile(tileToAdd, p.x, p.y);
+        }
 
-    /**
-     *
-     * @param x1 horizontal starting index
-     * @param y1
-     * @param x2
-     * @param y2
-     * @param op
-     */
-    public void findWords(int x1, int y1, int x2, int y2, boolean op) { return; }
+        // find the start and end indices
+        int x1, x2, y1, y2;
+        x1 = coords.get(0).x;
+        x2 = coords.get(0).x;
+        y1 = coords.get(0).y;
+        y2 = coords.get(0).y;
+        for (Point p: coords) {
+            if (p.x < x1) x1 = p.x;
+            else x2 = p.x;
+            if (p.y < y1) y1 = p.y;
+            else y2 = p.y;
+        }
 
-    private enum Operation {
-        VALIDATE_WORD,
-        CALCULATE_SCORE;
+        // validate the placement
+        if (!isValidPlacement(x1, y1, x2, y2)) {
+            // remove the tiles from the board
+            for (Point p: coords) board.removeTile(p.x, p.y);
+
+            // report unsuccessful placement
+            return false;
+        }
+
+        // placement is valid
+        // remove the tiles from the player's hand
+        // replace them with new tiles
+        swapTiles(letters);
+
+        // calculate the score of the placement
+        // add it to the players score
+
+        return true;
     }
+
+    public void swapTiles(ArrayList<Character> tilesToBeSwapped) {
+        Player curPlayer;
+        if (curPlayerFlag) curPlayer = p1;
+        else curPlayer = p2;
+
+        for (Character letter: tilesToBeSwapped) {
+            try {
+                curPlayer.replaceTileByLetter(letter, drawPile.drawTile());
+            } catch (InvalidDrawException e) {
+                System.out.println("No more tiles! Draw pile is empty.");
+            }
+        }
+
+    }
+
+    public void switchPlayers() { this.curPlayerFlag = !this.curPlayerFlag; }
+
 }
+
+
 

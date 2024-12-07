@@ -94,6 +94,8 @@ public class Player {
 			System.out.println((i+1) + "Char: " + cur.getLetter() + "     Points: " + cur.getPoints());
 		}
 	}
+
+	public ArrayList<Tile> getHand() { return this.hand; }
 	
 	/*
 	 * returns the first tile with a matching letter to the parameter that was passed
