@@ -41,7 +41,7 @@ public class ScrabbleModel {
     	ArrayList<String> newDict = new ArrayList<>();
         try {
             Scanner inputScanner = new Scanner(new File("dictionary.txt"));
-            while (inputScanner.hasNext()) newDict.add(inputScanner.nextLine());
+            while (inputScanner.hasNext()) newDict.add(inputScanner.nextLine().toLowerCase());
         } catch (FileNotFoundException e) {
             System.out.println("No such file exists!");
         }
@@ -85,7 +85,7 @@ public class ScrabbleModel {
             te = findGap(x1, y2, 0, 1);
 
             // build the word and check if it is valid
-            word = buildWord(x1, ts, x1, te);
+            word = buildWord(x1, x2, ts, te);
             if (!dictionary.contains(word)) return false;
 
             // check cross words
@@ -109,6 +109,7 @@ public class ScrabbleModel {
 
             // build the word and check if it is valid
             word = buildWord(ts, te, y1, y2);
+            
             if (!dictionary.contains(word)) return false;
 
             // check cross words
@@ -136,7 +137,7 @@ public class ScrabbleModel {
             te = findGap(x1, y2, 0, 1);
 
             // add the startScore of the word to the total startScore
-            startScore += getWordScore(x1, ts, x1, te);
+            startScore += getWordScore(x1, x1, ts, te);
 
             // add the scores of the crosswords
             for (int y = y1; y <= y2; y++) {
@@ -145,7 +146,7 @@ public class ScrabbleModel {
                 te = findGap(x1, y, 1, 0);
 
                 // build the word and check if it is valid
-                if (ts != te) startScore += getWordScore(x1, ts, x2, te);
+                if (ts != te) startScore += getWordScore(ts, te, y1, y1);
             }
         } else if (y1 == y2) {
             // horizontal placement
@@ -155,7 +156,7 @@ public class ScrabbleModel {
             te = findGap(x2, y1, 1, 0);
 
             // build the word and check if it is valid
-            startScore += getWordScore(ts, y1, te, x1);
+            startScore += getWordScore(ts, te, y1, y1);
 
             // check cross words
             for (int x = x1; x <= x2; x++) {
@@ -164,7 +165,7 @@ public class ScrabbleModel {
                 te = findGap(x, y1, 0, 1);
 
                 // build the word and check if it is valid
-                if (ts != te)  startScore += getWordScore(ts, y1, te, y2);
+                if (ts != te)  startScore += getWordScore(x1, x1, ts, te);
             }
         } return startScore;
     }
@@ -180,7 +181,7 @@ public class ScrabbleModel {
         } else {
             // horizontal word
             for (int i = x1; i <= x2; i++) {
-                BoardSquare bs = board.getBoardSquare(y1,i);
+                BoardSquare bs = board.getBoardSquare(i,y1);
                 score += bs.getScore();
             }
         } return score;
@@ -202,13 +203,13 @@ public class ScrabbleModel {
         if (x1 == x2) {
             // vertical word
             for (int i = y1; i <= y2; i++) {
-                BoardSquare bs = board.getBoardSquare(y1,i);
+                BoardSquare bs = board.getBoardSquare(x1,i);
                 word += bs.getLetter();
             }
         } else {
             // horizontal word
             for (int i = x1; i <= x2; i++) {
-                BoardSquare bs = board.getBoardSquare(x1,i);
+                BoardSquare bs = board.getBoardSquare(i,y1);
                 word += bs.getLetter();
             }
         } return word;
@@ -249,8 +250,6 @@ public class ScrabbleModel {
             if (p.y < y1) y1 = p.y;
             if (p.y > y2) y2 = p.y;
         }
-        
-        System.out.println(x1+" "+y1+" "+x2+" "+y2);
 
         // validate the placement
         if (!isValidPlacement(x1, y1, x2, y2)) {
@@ -270,6 +269,7 @@ public class ScrabbleModel {
         // add it to the players score
         int curPlayerCurScore = curPlayer.getScore();
         curPlayer.setScore(calculateScore(x1, y1, x2, y2, curPlayerCurScore));
+        System.out.println(curPlayer.getScore());
 
         return true;
     }
