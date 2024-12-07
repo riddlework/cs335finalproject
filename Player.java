@@ -95,8 +95,11 @@ public class Player {
 	 * @param newTile The Tile object which will replace the previous one
 	 */
 	public void replaceTileByLetter(char c, Tile newTile) {
-		for (int i=0; i<hand.size(); i++) {
-			if (hand.get(i).getLetter() == c) hand.add(i, newTile);
+		for (int i=0; i<7; i++) {
+			if (hand.get(i).getLetter() == c) { 
+				hand.add(i, newTile);
+				return;
+			}
 		}
 	}
 

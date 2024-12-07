@@ -269,7 +269,6 @@ public class ScrabbleModel {
         // add it to the players score
         int curPlayerCurScore = curPlayer.getScore();
         curPlayer.setScore(calculateScore(x1, y1, x2, y2, curPlayerCurScore));
-        System.out.println(curPlayer.getScore());
 
         return true;
     }
@@ -331,6 +330,11 @@ public class ScrabbleModel {
         return p2.getScore();
     }
     	
+    
+    public Player getCurPlayer() {
+    	return curPlayer;
+    }
+    
     	
 }
 
