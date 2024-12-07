@@ -1,47 +1,46 @@
-
-/*
- * TO ANY GROUP MEMBERS READING THIS CODE, I HAVE NOT FINISHED THIS CLASS OR TESTED THESE METHODS SO 
- * DO NOT MOVE FORWARD WITH THIS CODE. I INTEND TO MAKE MORE IMPROVEMENTS ASAP. I AM JUST PUSHING THESE 
- * SO THAT YOU CAN SEE WHAT I HAVE BEEN WORKIG ON AND YOU DONT WASTE YOUR TIME REPEATING WORK
- * 
- *  :)
- */
-
-
-
-/*
- * Author(s): Ben Yurek ... add names here
+/**
+ * Author(s): Ben Yurek, Maria Fay Garcia, Lucas Dargert, Mohamed Diakhate
  * File: Tile.java
- * Course: csc335
- * Description: tile object class
+ * Course: CSC335
  */
 
-
+/**
+ * This class represents a scrabble tile--has a letter and a point
+ */
 final class Tile {
 
 	// instance variables
-	// both fields are primitive types so can be declared public
 	private char letter;
 	private int points; 
 	
-	// empty tile constructor
+
+	/**
+	 * A constructor -- empty because there is nothing to initialize
+	 */
 	public Tile() {
 		
 	}
-	
-	// constructor
+
+	/**
+	 * Create a new Tile object
+	 * @param c The letter that the tile represents
+	 * @param p The integer point value of the tile
+	 */
 	public Tile(char c, int p) {
 		letter = c;
 		points = p;
 	}
 	
-	// return this tile's letter
+	/**
+	 * return the tile's letter--a char
+	 */
 	public char getLetter() { return letter; }
-	
-	// return this tile's point value
+
+	/**
+	 * return the integer point value of the tile
+	 * @return an integer--the point value of the tile
+	 */
 	public int getPoints() { return points; }
-	
-	
 }
 
 
