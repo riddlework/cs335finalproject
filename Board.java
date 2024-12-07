@@ -14,7 +14,7 @@ public class Board {
         board = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             ArrayList<BoardSquare> boardRow = new ArrayList<>();
-            for (int j=0; i<15; i++) {
+            for (int j=0; j<15; j++) {
             	BoardSquare sq = new BoardSquare();
             	boardRow.add(sq);
             }

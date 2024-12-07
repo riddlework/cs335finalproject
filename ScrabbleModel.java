@@ -108,7 +108,7 @@ public class ScrabbleModel {
             te = findGap(x2, y1, 1, 0);
 
             // build the word and check if it is valid
-            word = buildWord(ts, y1, te, x1);
+            word = buildWord(ts, te, y1, y2);
             if (!dictionary.contains(word)) return false;
 
             // check cross words
@@ -147,7 +147,7 @@ public class ScrabbleModel {
                 // build the word and check if it is valid
                 if (ts != te) startScore += getWordScore(x1, ts, x2, te);
             }
-        } else {
+        } else if (y1 == y2) {
             // horizontal placement
 
             // find the start, end of the word
@@ -186,33 +186,49 @@ public class ScrabbleModel {
         } return score;
     }
 
+    
+    
+    
+    
     private int findGap(int x, int y, int x_vec, int y_vec) {
         while(board.getBoardSquare(x,y).hasTile()) {
             x = x + x_vec;
             y = y + y_vec;
         }
-        if (y_vec != 0) return y_vec; // searching vertically
-        else return x_vec;            // searching horizontally
+        if (y_vec != 0) return y-y_vec; // searching vertically
+        else return x-x_vec;            // searching horizontally
     }
 
+    
+    
+    
+    
+    
 
     private String buildWord(int x1, int x2, int y1, int y2) {
         String word = "";
         if (x1 == x2) {
             // vertical word
             for (int i = y1; i <= y2; i++) {
-                BoardSquare bs = board.getBoardSquare(x1,i);
+                BoardSquare bs = board.getBoardSquare(y1,i);
                 word += bs.getLetter();
             }
         } else {
             // horizontal word
             for (int i = x1; i <= x2; i++) {
-                BoardSquare bs = board.getBoardSquare(y1,i);
+                BoardSquare bs = board.getBoardSquare(x1,i);
                 word += bs.getLetter();
             }
         } return word;
     }
 
+    
+    
+    
+    
+    
+    
+    
 
     // returns whether placement was invalid or not--if invalid it is still the given player's turn
     public boolean playerTurn(HashMap<Point,Character> placementInfo) {
@@ -222,10 +238,10 @@ public class ScrabbleModel {
         ArrayList<Character> letters = new ArrayList<>();
         for (Point p: placementInfo.keySet()) {
             coords.add(p);
-            letters.add(placementInfo.get(p));
-
             Character letter = placementInfo.get(p);
-            Tile tileToAdd = p2.getTileByLetter(letter);
+            letters.add(letter);
+            
+            Tile tileToAdd = curPlayer.getTileByLetter(letter);
             board.addTile(tileToAdd, p.x, p.y);
         }
 
@@ -237,10 +253,12 @@ public class ScrabbleModel {
         y2 = coords.get(0).y;
         for (Point p: coords) {
             if (p.x < x1) x1 = p.x;
-            else x2 = p.x;
+            if (p.x > x2) x2 = p.x;
             if (p.y < y1) y1 = p.y;
-            else y2 = p.y;
+            if (p.y > y2) y2 = p.y;
         }
+        
+        System.out.println(x1+" "+y1+" "+x2+" "+y2);
 
         // validate the placement
         if (!isValidPlacement(x1, y1, x2, y2)) {
@@ -294,6 +312,18 @@ public class ScrabbleModel {
         return curPlayer.getScore();
     }
 
+    
+    public void setPlayerHand(ArrayList<Tile> hand) {
+    	p1.setHand(hand);
+    }
+    
+    
+    public void setStartP1() {
+    	curPlayer = p1;
+    }
+    	
+    	
+    	
 }
 
 

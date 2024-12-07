@@ -142,5 +142,9 @@ public class Player {
 		return this.score;
 	}
 	
+	public void setHand(ArrayList<Tile> newHand) {
+		hand = newHand;
+	}
+	
 	
 }

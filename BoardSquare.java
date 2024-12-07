@@ -11,10 +11,24 @@ public class BoardSquare {
         type = squareType.NONE;
     }
     
+    
+    // gets the type of the BoardSquare (for unit tests)
+    public squareType getType() {
+    	return type;
+    }
+    
+    
     // sets the point multiplier type
     public void setType(squareType type) {
     	this.type = type;
     }
+    
+    
+    // gets the tile on the square (for unit tests)
+    public Tile getTile() {
+    	return tile;
+    }
+    
     
     //adds tile to the board at this coordinate
     public void setTile(Tile tile) {
@@ -35,7 +49,9 @@ public class BoardSquare {
 
     //returns boolean if there is a tile on this square
     public boolean hasTile() {
-    	if (tile != null) return true;
+    	if (tile != null) { 
+    		return true;
+    	}
     	return false;
     }
     
