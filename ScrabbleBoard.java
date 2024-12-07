@@ -1,12 +1,13 @@
+package leetcode;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
 
+  // Tracks if it's the first turn of the game
 
 public class ScrabbleBoard extends JPanel {
-    private boolean isFirstTurn = true;  // Tracks if it's the first turn of the game
-
+	private boolean isFirstTurn = true;
     private static final int BOARD_SIZE = 15;
     private JButton[][] squares = new JButton[BOARD_SIZE][BOARD_SIZE];
     private JButton selectedTile = null;
@@ -29,6 +30,17 @@ public class ScrabbleBoard extends JPanel {
                 squares[row][col].setOpaque(true);
                 setDefaultSquareColor(row, col);
                 add(squares[row][col]);
+                squares[row][col].setEnabled(false);
+                if (row == 7 && col == 7) {
+                	squares[row][col].setEnabled(true);
+                	squares[row][col].setBackground(Color.red);
+                	
+                }
+                JButton temp = squares[row][col];
+                temp.addActionListener(e -> {
+                	temp.setText("C");
+                	setSurroundingTiles(squares, temp);
+                });
             }
         }
     }
@@ -50,13 +62,8 @@ public class ScrabbleBoard extends JPanel {
     }
 
     // GUI Control Methods
-    public void enableSquare(int row, int col, boolean enable) {
-        squares[row][col].setEnabled(enable);
-    }
-
     public void placeTile(int row, int col, char letter) {
-        squares[row][col].setText(String.valueOf(letter));
-        
+        squares[row][col].setText(String.valueOf(letter));      
     }
 
     public void clearSquare(int row, int col) {
@@ -151,6 +158,36 @@ public class ScrabbleBoard extends JPanel {
         if (components[1] instanceof JLabel) {
             ((JLabel)components[1]).setText("Player 2 Score: " + player2Score);
         }
+    }
+    
+    private static void setSurroundingTiles(JButton[][] grid, JButton b ) {
+    	b.setEnabled(false);
+    	for (int i = 0; i < 15; i++) {
+    		for (int j = 0; j < 15; j++) {
+    			if (grid[i][j] == b) {
+    				if (i != 0) {
+    					if (grid[i-1][j].getText().equals("")) {
+    						grid[i-1][j].setEnabled(true);
+    					}
+    				}
+    				if (i != 14) {
+    					if (grid[i+1][j].getText().equals("")) {
+    						grid[i+1][j].setEnabled(true);
+    					}
+    				}
+    				if (j != 0) {
+    					if (grid[i][j-1].getText().equals("")) {
+    						grid[i][j-1].setEnabled(true);
+    					}
+    				}
+    				if (j != 14) {
+    					if (grid[i][j+1].getText().equals("")) {
+    						grid[i][j+1].setEnabled(true);
+    					}
+    				}
+    			}
+    		}
+    	}
     }
 
     public static void main(String[] args) {
