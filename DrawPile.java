@@ -1,31 +1,23 @@
+/**
+ * Author(s): Ben Yurek, Maria Fay Garcia, Lucas Dargert, Mohamed Diakhate
+ * File: DrawPile.java
+ * Course: CSC335
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 
-
-/*
- * TO ANY GROUP MEMBERS READING THIS CODE, I HAVE NOT FINISHED THIS CLASS OR TESTED THESE METHODS SO 
- * DO NOT MOVE FORWARD WITH THIS CODE. I INTEND TO MAKE MORE IMPROVEMENTS ASAP. I AM JUST PUSHING THESE 
- * SO THAT YOU CAN SEE WHAT I HAVE BEEN WORKIG ON AND YOU DONT WASTE YOUR TIME REPEATING WORK
- * 
- *  :)
+/**
+ * A class that represents the drawpile--contains all the letters in the game of Scrabble
+ * with methods to draw without replacement and to swap tiles
  */
-
-/*
- * Author(s): Ben Yurek ... add names here
- * File: DrawPile.java
- * Course: csc335
- * Description: draw pile class
- */
-
 public class DrawPile {
 
 	// instance variables
-	private		ArrayList<Tile>		pool;
-	
-	/*
-	 * constructor 
+	private	ArrayList<Tile> pool;
+
+	/**
+	 * Initialize the drawpile--add all the necessary letters according to the rules
 	 */
 	public DrawPile() {
 		
@@ -99,16 +91,19 @@ public class DrawPile {
 		}
 
 		// shuffle the draw pile
-		shufflePile();
-	}	
-	
-	
-	
+		Collections.shuffle(pool);
+	}
+
 	/**
-	 * removes one tile and gives it to the player that called the method
-	 * @return the first tile in the list
-	 * 
-	 * @post cannot call unless the player hand has an empty slot
+	 * Return the number of tiles in the drawpile
+	 * @return An integer--the number of tiles in the drawpile
+	 */
+	public int getSize() { return pool.size(); }
+
+	/**
+	 * removes one tile and returns it to the player that called the method
+	 * @pre player must have less than 7 tiles in their hand
+	 * @return the first tile object in the shuffled list
 	 */
 	public Tile drawTile() throws InvalidDrawException {
 		
@@ -125,14 +120,11 @@ public class DrawPile {
 		return retTile;
 	}
 	
-	
-	
 	/**
 	 * removes x tiles and gives them to the player that called the method
+	 * @pre cannot pass a number greater than what the player can hold
 	 * @param x = number of tiles to return
 	 * @returns an ArrayList of x tiles
-	 * 
-	 * @pre cannot pass a number greater than what the player can hold
 	 */
 	public ArrayList<Tile> drawTiles(int x) throws InvalidDrawException {
 		
@@ -158,55 +150,11 @@ public class DrawPile {
 		return retTiles;
 	}
 
-//	public ArrayList<Tile> swapTiles(/**/)
-	
-	
-	
-	/*
-	 * shuffle the draw pile 
-	 * probably will never use this method
-	 */
-	private void shufflePile() {
-		Collections.shuffle(pool);
-	}
-	
-	
-	
-	/*
-	 * return the number of tiles remaining to the client code
-	 */
-	public int getSize() {
-		return pool.size();
-	}
-	
-	
-	/*
-	 * print the contents of the draw pile in order
-	 * 
-	 * for the purposes of testing the above methods and maybe other things
-	 */
-	public void dumpBag() {
-		for (int i=0; i<pool.size(); i++) {
-			Tile cur = pool.get(i);
-			System.out.println(i + ".   Letter : " + cur.getLetter() + "   Points   : " + cur.getPoints());
-		}
-	}
-	
-	
-	
-	/*
-	 * add tiles back to the draw pile pool from a players hand
+	/**
+	 * Add tiles back to the draw pile from a players hand
+	 * @param tiles The Tile objects to add back into the draw pile
 	 */
 	public void addTiles(ArrayList<Tile> tiles) {
-		for (Tile t : tiles) {
-			pool.add(t);
-		}
+		for (Tile t: tiles) pool.add(t);
 	}
-	
-	
-	
-	
-	
-	
-	
 }
