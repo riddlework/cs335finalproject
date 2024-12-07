@@ -133,6 +133,14 @@ public class Player {
 	public void shuffleHand() {
 		Collections.shuffle(hand);
 	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public int getScore() {
+		return this.score;
+	}
 	
 	
 }

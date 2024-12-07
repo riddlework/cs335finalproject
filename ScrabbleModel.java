@@ -48,7 +48,7 @@ public class ScrabbleModel {
         return newDict;
     }
 
-    public boolean isValidPlacement(int x1, int y1, int x2, int y2) {
+    private boolean isValidPlacement(int x1, int y1, int x2, int y2) {
         int ts, te; // true start, true end
         String word;
         if (x1 == x2 && y1 == y2) {
@@ -126,8 +126,7 @@ public class ScrabbleModel {
         } return true;
     }
 
-    private int calculateScore(int x1, int y1, int x2, int y2) {
-        int score = 0;
+    private int calculateScore(int x1, int y1, int x2, int y2, int startScore) {
         int ts, te;
         if (x1 == x2) {
             // vertical word
@@ -136,8 +135,8 @@ public class ScrabbleModel {
             ts = findGap(x1, y1, 0, -1);
             te = findGap(x1, y2, 0, 1);
 
-            // add the score of the word to the total score
-            score += getWordScore(x1, ts, x1, te);
+            // add the startScore of the word to the total startScore
+            startScore += getWordScore(x1, ts, x1, te);
 
             // add the scores of the crosswords
             for (int y = y1; y <= y2; y++) {
@@ -146,9 +145,8 @@ public class ScrabbleModel {
                 te = findGap(x1, y, 1, 0);
 
                 // build the word and check if it is valid
-                if (ts != te) score += getWordScore(x1, ts, x2, te);
+                if (ts != te) startScore += getWordScore(x1, ts, x2, te);
             }
-
         } else {
             // horizontal placement
 
@@ -157,7 +155,7 @@ public class ScrabbleModel {
             te = findGap(x2, y1, 1, 0);
 
             // build the word and check if it is valid
-            score += getWordScore(ts, y1, te, x1);
+            startScore += getWordScore(ts, y1, te, x1);
 
             // check cross words
             for (int x = x1; x <= x2; x++) {
@@ -166,9 +164,9 @@ public class ScrabbleModel {
                 te = findGap(x, y1, 0, 1);
 
                 // build the word and check if it is valid
-                if (ts != te)  score += getWordScore(ts, y1, te, y2);
+                if (ts != te)  startScore += getWordScore(ts, y1, te, y2);
             }
-        } return score;
+        } return startScore;
     }
 
     private int getWordScore(int x1, int x2, int y1, int y2) {
@@ -260,6 +258,8 @@ public class ScrabbleModel {
 
         // calculate the score of the placement
         // add it to the players score
+        int curPlayerCurScore = curPlayer.getScore();
+        curPlayer.setScore(calculateScore(x1, y1, x2, y2, curPlayerCurScore));
 
         return true;
     }
@@ -274,10 +274,6 @@ public class ScrabbleModel {
         }
     }
 
-    // shuffle player tiles
-    // get player scores
-    // get player hand
-
     public void switchPlayers() {
         if (curPlayer == p1) curPlayer = p2;
         else curPlayer = p1;
@@ -291,6 +287,11 @@ public class ScrabbleModel {
     
     public ArrayList<Tile> getPlayerHand(Player player) {
     	return player.getHand();
+    }
+
+    // return the current players score
+    public int getCurPlayerScore() {
+        return curPlayer.getScore();
     }
 
 }
