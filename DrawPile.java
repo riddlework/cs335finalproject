@@ -29,6 +29,7 @@ public class DrawPile {
 	 */
 	public DrawPile() {
 		
+		pool = new ArrayList<Tile>();
 		HashMap<Character, Integer> initQ = new HashMap<>();
 		HashMap<Character, Integer> initP = new HashMap<>();
 		
@@ -117,7 +118,7 @@ public class DrawPile {
 		Tile retTile = pool.remove(0);
 		
 		//move each tile down one index slot
-		for (int i=0; i<pool.size(); i++) {
+		for (int i=0; i<pool.size()-1; i++) {
 			pool.add(i, pool.remove(i+1));
 		}
 		
