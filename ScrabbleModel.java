@@ -187,28 +187,15 @@ public class ScrabbleModel {
     }
 
     
-    
-    
-    
     private int findGap(int x, int y, int x_vec, int y_vec) {
         while(board.getBoardSquare(x,y).hasTile()) {
             x = x + x_vec;
             y = y + y_vec;
         }
-<<<<<<< HEAD
         if (y_vec != 0) return y-y_vec; // searching vertically
         else return x-x_vec;            // searching horizontally
-=======
-        if (y_vec != 0) return y; // searching vertically
-        else return x;            // searching horizontally
->>>>>>> 6b3103addced1b91d5faa5b4a2c008d5e7808389
     }
 
-    
-    
-    
-    
-    
 
     private String buildWord(int x1, int x2, int y1, int y2) {
         String word = "";
@@ -326,7 +313,23 @@ public class ScrabbleModel {
     public void setStartP1() {
     	curPlayer = p1;
     }
-    	
+
+
+    public int getWinner() {
+        int p1Score = p1.getScore();
+        int p2Score = p2.getScore();
+        if (p1Score > p2Score) return 1;
+        else if (p2Score > p1Score) return 2;
+        else return 0;
+    }
+
+    public int getPlayerOneScore() {
+        return p1.getScore();
+    }
+
+    public int getPlayerTwoScore() {
+        return p2.getScore();
+    }
     	
     	
 }
