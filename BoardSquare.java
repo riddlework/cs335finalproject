@@ -9,7 +9,7 @@
  */
 public class BoardSquare {
     // instance variables
-    private Tile tile = null;
+    private Tile tile;
     private squareType type;
 
    
@@ -18,7 +18,10 @@ public class BoardSquare {
     /**
      * create a new BoardSquare object with type as NONE
      */
-    public BoardSquare() { type = squareType.NONE; }
+    public BoardSquare() {
+        tile = null;
+        type = squareType.NONE;
+    }
 
     /**
      * Set the type of the BoardSquare

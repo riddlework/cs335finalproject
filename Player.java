@@ -82,7 +82,7 @@ public class Player {
 	 * @throws InvalidHandException Thrown if trying to add to the hand of a player with more than 7 tiles
 	 * @throws InvalidDrawException Thrown if the drawpile is empty
 	 */
-	public void newTile(Tile tile) throws InvalidHandException, InvalidDrawException {
+	public void newTile(Tile tile) throws InvalidHandException {
 
 		if (hand.size() >= 7) throw new InvalidHandException(name + "'s hand is already full so a Tile could not be added");
 
@@ -104,7 +104,7 @@ public class Player {
 	 * Shuffle the tiles in the players hand
 	 */
 	public void shuffleHand() { Collections.shuffle(hand); }
-	
+
 	/**
 	 * Prints a players hand to standard out
 	 */
