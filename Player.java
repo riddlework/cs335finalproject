@@ -40,18 +40,25 @@ public class Player {
 	
 	
 	
-//	/*
-//	 * adds a tile to the players hand if the length of their hand is less than 7
-//	 */
-//	public void newTile() throws InvalidHandException, InvalidDrawException {
-//
-//		if (hand.size() >= 7) throw new InvalidHandException(name + "'s hand is already full so a Tile could not be added");
-//
-//		// still need to write the get tile method in the draw pile composite class
-//		else hand.add(dp.drawTile());
-//
-//	}
-//
+	/*
+	 * adds a tile to the players hand if the length of their hand is less than 7
+	 */
+	public void newTile(Tile tile) throws InvalidHandException, InvalidDrawException {
+
+		if (hand.size() >= 7) throw new InvalidHandException(name + "'s hand is already full so a Tile could not be added");
+
+		// still need to write the get tile method in the draw pile composite class
+		else hand.add(tile);
+	}
+	
+	
+	/*
+	 * returns the numbers of tiles in the players hand
+	 */
+	public int getSize() {
+		return hand.size();
+	}
+
 	
 	
 	/*
@@ -85,5 +92,13 @@ public class Player {
 		}
 	}
 	
-	
+	/*
+	 * returns the first tile with a matching letter to the parameter that was passed
+	 */
+	public Tile getTileByLetter(char c) {
+		for (Tile t : hand) {
+			if (t.getLetter() == c) return t;
+		}
+		return null;
+	}
 }
