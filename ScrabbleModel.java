@@ -221,6 +221,16 @@ public class ScrabbleModel {
         if (curPlayer == p1) curPlayer = p2;
         else curPlayer = p1;
     }
+    
+    
+    public void shufflePlayerHand(Player player) {
+    	player.shuffleHand();
+    }
+    
+    
+    public ArrayList<Tile> getPlayerHand(Player player) {
+    	return player.getHand();
+    }
 
 }
 
