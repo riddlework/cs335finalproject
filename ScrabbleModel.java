@@ -195,13 +195,8 @@ public class ScrabbleModel {
             x = x + x_vec;
             y = y + y_vec;
         }
-<<<<<<< HEAD
         if (y_vec != 0) return y-y_vec; // searching vertically
         else return x-x_vec;            // searching horizontally
-=======
-        if (y_vec != 0) return y; // searching vertically
-        else return x;            // searching horizontally
->>>>>>> 6b3103addced1b91d5faa5b4a2c008d5e7808389
     }
 
     
