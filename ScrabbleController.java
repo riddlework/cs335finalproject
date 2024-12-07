@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ScrabbleController {
@@ -26,6 +27,18 @@ public class ScrabbleController {
 
     public int getPlayerTwoScore() {
         return model.getPlayerTwoScore();
+    }
+
+    public ArrayList<Tile> getCurPlayerHand() {
+        return model.getCurPlayerHand();
+    }
+
+    public void switchPlayers() {
+        model.switchPlayers();
+    }
+
+    public void shufflePlayerHand() {
+        model.shufflePlayerHand();
     }
 }
 

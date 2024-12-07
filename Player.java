@@ -55,7 +55,9 @@ public class Player {
 	 * return the size of the player's hand
 	 * @return An integer--the size of the player's hand
 	 */
-	public int getSize() { return hand.size(); }
+	public int getSize() {
+		return hand.size();
+	}
 
 	/**
 	 * return the player's score
@@ -106,7 +108,9 @@ public class Player {
 	/**
 	 * Shuffle the tiles in the players hand
 	 */
-	public void shuffleHand() { Collections.shuffle(hand); }
+	public void shuffleHand() {
+		Collections.shuffle(hand);
+	}
 
 	/**
 	 * Prints a players hand to standard out

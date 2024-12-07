@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
+import java.util.Collections;
 
   // Tracks if it's the first turn of the game
 
@@ -14,12 +15,14 @@ public class ScrabbleGUI extends JPanel {
     private static JButton[][] squares = new JButton[BOARD_SIZE][BOARD_SIZE];
     private static JButton[] rack = new JButton[7];
     private static JButton selectedTile = null;
-    private static boolean isPlacingTile = false;
     private static HashMap<Point, Character> justPlacedTiles = new HashMap<Point, Character>();
     private static Stack<Point> justPlacedPoints = new Stack<Point>();
     private static JPanel rackPanel;
     private static JTextArea gameLog;
     private static JPanel scorePanel;
+    private static ArrayList<Tile> currentPlayerHand = new ArrayList<Tile>();
+    private static boolean currentPlayer;
+    
 
     public ScrabbleGUI() {
         setLayout(new GridLayout(BOARD_SIZE, BOARD_SIZE));
@@ -27,6 +30,7 @@ public class ScrabbleGUI extends JPanel {
         setPreferredSize(new Dimension(600, 600));
     }
 
+    
     private void initializeBoard() {
         for (int row = 0; row < BOARD_SIZE; row++) {
             for (int col = 0; col < BOARD_SIZE; col++) {
@@ -42,16 +46,20 @@ public class ScrabbleGUI extends JPanel {
                 }
                 JButton temp = squares[row][col];
                 Point newPoint = new Point(row, col);
-                Character character = 'C';
                 temp.addActionListener(e -> {
-                	temp.setText(Character.toString(character));
-                	setSurroundingTiles(squares, temp);
-                	justPlacedTiles.put(newPoint, character);
-                	justPlacedPoints.add(newPoint);
+                	if (selectedTile != null) {
+                		temp.setText(selectedTile.getText());
+                    	setSurroundingTiles(squares, temp);
+                    	justPlacedTiles.put(newPoint, selectedTile.getText().charAt(0));
+                    	justPlacedPoints.add(newPoint);
+                    	selectedTile.setEnabled(false);
+                    	selectedTile = null;
+                	}
                 });
             }
         }
     }
+    
 
     public void setDefaultSquareColor(int row, int col) {
         if ((row == 1 || row == 13) && (col == 5 || col == 9) || 
@@ -68,95 +76,12 @@ public class ScrabbleGUI extends JPanel {
             squares[row][col].setBackground(Color.WHITE);
         }
     }
-
-    // GUI Control Methods
-    public void placeTile(int row, int col, char letter) {
-        squares[row][col].setText(String.valueOf(letter));      
-    }
-
-    public void clearSquare(int row, int col) {
-        squares[row][col].setText("");
-    }
-
-    public String getSquareLetter(int row, int col) {
-        return squares[row][col].getText();
-    }
-
-    public void highlightSquare(int row, int col) {
-        squares[row][col].setBorder(BorderFactory.createLineBorder(Color.GREEN, 2));
-    }
-
-    public void unhighlightSquare(int row, int col) {
-        squares[row][col].setBorder(UIManager.getBorder("Button.border"));
-    }
-
-    public void setRackTiles(List<Character> tiles) {
-        Component[] rackComponents = rackPanel.getComponents();
-        for (int i = 0; i < rackComponents.length && i < tiles.size(); i++) {
-            if (rackComponents[i] instanceof JButton) {
-                ((JButton)rackComponents[i]).setText(String.valueOf(tiles.get(i)));
-            }
-        }
-    }
- // Used to guide players where they can legally place tiles
-    public void enableSquare(int row, int col, boolean enable) {
-        squares[row][col].setEnabled(enable);
-        
-        // When enabled: shows green highlight to indicate valid placement
-        if (enable) {
-            squares[row][col].setBorder(BorderFactory.createLineBorder(Color.GREEN, 2));
-            squares[row][col].setBackground(new Color(230, 255, 230)); // Light green for visibility
-        } 
-        // When disabled: returns to default appearance
-        else {
-            squares[row][col].setBorder(UIManager.getBorder("Button.border"));
-            setDefaultSquareColor(row, col);
-        }
-    }
-
-    // Checks if a square should be enabled based on Scrabble rules:
-    // 1. First turn must use center square
-    // 2. Other turns must connect to existing words
-    // 3. Can only place in empty squares
-    public boolean isValidSquareToEnable(int row, int col) {
-        // Special case: first turn must use center square
-        if (isFirstTurn && row == 7 && col == 7) {
-            return true;
-        }
-        
-        // Can't place tile on an occupied square
-        if (!squares[row][col].getText().isEmpty()) {
-            return false;
-        }
-        
-        // Check if there's at least one adjacent tile
-        boolean hasAdjacentTile = false;
-        
-        // Look in all four directions (up, down, left, right)
-        // Check above if not in top row
-        if (row > 0 && !squares[row-1][col].getText().isEmpty()) {
-            hasAdjacentTile = true;
-        }
-        // Check below if not in bottom row
-        if (row < BOARD_SIZE-1 && !squares[row+1][col].getText().isEmpty()) {
-            hasAdjacentTile = true;
-        }
-        // Check left if not in leftmost column
-        if (col > 0 && !squares[row][col-1].getText().isEmpty()) {
-            hasAdjacentTile = true;
-        }
-        // Check right if not in rightmost column
-        if (col < BOARD_SIZE-1 && !squares[row][col+1].getText().isEmpty()) {
-            hasAdjacentTile = true;
-        }
-        
-        return hasAdjacentTile;
-    }
-
+    
 
     public static void updateGameLog(String message) {
         gameLog.append(message + "\n");
     }
+    
 
     public static void updateScores(int player1Score, int player2Score) {
         Component[] components = scorePanel.getComponents();
@@ -168,6 +93,7 @@ public class ScrabbleGUI extends JPanel {
         }
     }
     
+    
     private static void setSurroundingTiles(JButton[][] grid, JButton b ) {
     	b.setEnabled(false);
     	for (int i = 0; i < 15; i++) {
@@ -178,6 +104,7 @@ public class ScrabbleGUI extends JPanel {
     		}
     	}
     }
+    
     
     private static void checkWord(HashMap<Point, Character> justPlacedTiles, Stack<Point> justPlacedPoints, JButton[][] squares, boolean tester) {
     	if (tester) {   // condition will be playerTurn(justPlacedTiles)
@@ -202,12 +129,14 @@ public class ScrabbleGUI extends JPanel {
     	}
     }
     
+    
  // Helper method to reset a square (clear text and enable it)
     private static void resetSquare(JButton[][] squares, int x, int y) {
         squares[x][y].setText("");
         squares[x][y].setEnabled(true);
         disableAdjacentSquares(squares, x, y);
     }
+    
 
     // Helper method to disable adjacent squares when needed
     private static void disableAdjacentSquares(JButton[][] squares, int x, int y) {
@@ -224,6 +153,7 @@ public class ScrabbleGUI extends JPanel {
             squares[x][y + 1].setEnabled(false);
         }
     }
+    
 
     // Helper method to re-enable adjacent squares when needed
     private static void enableAdjacentSquares(JButton[][] squares, int x, int y) {
@@ -240,22 +170,35 @@ public class ScrabbleGUI extends JPanel {
             squares[x][y + 1].setEnabled(true);
         }
     }
+    
+    
+    private static void setHand() {
+    	for (int i = 0; i < 7; i++) {
+    		rack[i].setText(String.valueOf(currentPlayerHand.get(i).getLetter()));
+    	}
+    }
+    
 
     public static void main(String[] args) {
+    	ScrabbleModel model = new ScrabbleModel();
+    	ScrabbleController controller = new ScrabbleController(model);
+    	ScrabbleGUI gui = new ScrabbleGUI();
         JFrame frame = new JFrame("Scrabble");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        ScrabbleGUI gui = new ScrabbleGUI();
         frame.add(gui, BorderLayout.CENTER);
 
+        
         JPanel rackPanel = new JPanel();
         rackPanel.setLayout(new GridLayout(1, 7));
-        
         for (int i = 0; i < 7; i++) {
             JButton tile = new JButton(" ");
             tile.setFont(new Font("Arial", Font.BOLD, 16));
             rackPanel.add(tile);
             rack[i] = tile;
+            tile.addActionListener(e -> {
+            	selectedTile = tile;
+            });
+            
         }
         frame.add(rackPanel, BorderLayout.SOUTH);
         gui.rackPanel = rackPanel;
@@ -264,21 +207,39 @@ public class ScrabbleGUI extends JPanel {
         JPanel sidePanel = new JPanel();
         sidePanel.setLayout(new BorderLayout());
         sidePanel.setPreferredSize(new Dimension(200, 600));
+        
 
         JPanel controlPanel = new JPanel();
         controlPanel.setLayout(new GridLayout(4, 1));
         
         JButton submitButton = new JButton("Submit Word");
-        boolean tester = true;   // Eventually going to be playerTurn
         submitButton.addActionListener(e -> {
-        	checkWord(justPlacedTiles, justPlacedPoints, squares, tester);
+        	checkWord(justPlacedTiles, justPlacedPoints, squares, controller.playerTurn(justPlacedTiles));
+        	updateScores(controller.getPlayerOneScore(), controller.getPlayerTwoScore());
+        	for (JButton b : rack) {
+        		b.setEnabled(true);
+        	}
+        	controller.switchPlayers();
+            currentPlayerHand = controller.getCurPlayerHand();
+            setHand();
+        });
+  
+        JButton shuffleButton = new JButton("Shuffle Rack");
+        shuffleButton.addActionListener(e -> {
+        	controller.shufflePlayerHand();
+        	setHand();
         });
         
-        JButton shuffleButton = new JButton("Shuffle Rack");
         JButton skipTurnButton = new JButton("Skip Turn");
+        skipTurnButton.addActionListener(e -> {
+        	controller.switchPlayers();
+        	currentPlayerHand = controller.getCurPlayerHand();
+        	setHand();
+        });
+        
         JButton endGameButton = new JButton("End Game");
         endGameButton.addActionListener(e -> {
-        	int getWinner = 1;
+        	int getWinner = controller.getWinner();
         	if (getWinner == 0) {
         		updateGameLog("The game has ended in a tie!");
         	}
@@ -299,10 +260,9 @@ public class ScrabbleGUI extends JPanel {
         	shuffleButton.setEnabled(false);
         	submitButton.setEnabled(false);
         	skipTurnButton.setEnabled(false);
-        	endGameButton.setEnabled(false);
-        	
+        	endGameButton.setEnabled(false);	
         });
-
+        
         submitButton.setMargin(new Insets(10, 10, 10, 10));
         shuffleButton.setMargin(new Insets(10, 10, 10, 10));
         skipTurnButton.setMargin(new Insets(10, 10, 10, 10));

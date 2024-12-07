@@ -27,13 +27,17 @@ public class BoardSquare {
      * Set the type of the BoardSquare
      * @param type The score type
      */
-    public void setType(squareType type) { this.type = type; }
+    public void setType(squareType type) {
+        this.type = type;
+    }
     
     /**
      * Add a tile to the boardsquare
      * @param tile The tile object to be added
      */
-    public void setTile(Tile tile) { this.tile = tile; }
+    public void setTile(Tile tile) {
+        this.tile = tile;
+    }
     
     /**
      * Remove the tile from the boardsquare and return it
@@ -49,7 +53,9 @@ public class BoardSquare {
      * Read the tile off of the boardsquare
      * @return The tile object belonging to the boardSquare
      */
-    public Tile readTile()  { return tile; }
+    public Tile readTile()  {
+        return tile;
+    }
 
     /**
      * Check to see if the boardsquare has a tile

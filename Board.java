@@ -82,7 +82,9 @@ public class Board {
      * @param x An integer--the x-coordinate at which the tile will be added
      * @param y An integer--the y-coordinate at which the tile will be added
      */
-    public void addTile(Tile tile, int x, int y) { board.get(x).get(y).setTile(tile); }
+    public void addTile(Tile tile, int x, int y) {
+        board.get(x).get(y).setTile(tile);
+    }
     
     /**
      * Remove a tile from the board and return it
@@ -90,7 +92,9 @@ public class Board {
      * @param y An integer--the y-coordinate at which the tile will be removed
      * @return A tile object--the tile that was removed
      */
-    public Tile removeTile(int x, int y) { return board.get(x).get(y).removeTile(); }
+    public Tile removeTile(int x, int y) {
+        return board.get(x).get(y).removeTile();
+    }
 
     /**
      * Return the tile object at the given coordinate
@@ -98,7 +102,9 @@ public class Board {
      * @param y An integer--the y-coordinate of the tile to be returned
      * @return The tile object at the given coordinate
      */
-    public Tile readTile(int x, int y) { return board.get(x).get(y).readTile(); }
+    public Tile readTile(int x, int y) {
+        return board.get(x).get(y).readTile();
+    }
 
     /**
      * Return the BoardSquare object at the given coordinate
@@ -106,7 +112,9 @@ public class Board {
      * @param y An integer--the y-coordinate of the BoardSquare to be returned
      * @return The BoardSquare object at the given coordinate
      */
-    public BoardSquare getBoardSquare(int x, int y) { return board.get(x).get(y); }
+    public BoardSquare getBoardSquare(int x, int y) {
+        return board.get(x).get(y);
+    }
 
 
     /**
@@ -115,5 +123,7 @@ public class Board {
      * @param y An integer -- the y-coordinate of the BoardSquare to be scored
      * @return The score of the BoardSquare object at the given coordinate
      */
-    public int getScore(int x, int y) { return board.get(x).get(y).getScore(); }
+    public int getScore(int x, int y) {
+        return board.get(x).get(y).getScore();
+    }
 }
