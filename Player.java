@@ -63,7 +63,9 @@ public class Player {
 	
 	/*
 	 * removes a tile from the players hand
-	 */
+	 * 
+	 * delete????
+	 *
 	public Tile playTile(int i) throws InvalidHandException {
 		
 		// instantiate empty tile to prevent error
@@ -77,6 +79,7 @@ public class Player {
 		
 		return retTile;
 	}
+	*/
 	
 	
 	
@@ -101,4 +104,16 @@ public class Player {
 		}
 		return null;
 	}
+	
+	
+	/*
+	 * iterate through the players hand and replace get a new tile for the tile that was just played
+	 */
+	public void replaceTileByLetter(char c, Tile newTile) {
+		for (int i=0; i<hand.size(); i++) {
+			if (hand.get(i).getLetter() == c) hand.add(i, newTile);
+		}
+	}
+	
+	
 }
