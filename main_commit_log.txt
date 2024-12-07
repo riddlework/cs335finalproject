@@ -1,0 +1,540 @@
+commit 6ea7080f7bacd7ca45650f2705e8ca16fcc99eb6
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 23:35:51 2024 -0700
+
+    added comments
+
+commit faa49f20d0923021c17fb63e2c0269f03e05fb14
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 23:07:59 2024 -0700
+
+    tests
+
+commit d94358816f27a5fa9f25d622f0be02be7872c056
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 23:06:50 2024 -0700
+
+    tests
+
+commit e29259dbbd78b31f3010b7e67bf0911c2bc048d7
+Merge: ad12820 0df9c2a
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 22:50:47 2024 -0700
+
+    Merge branch 'main' of https://github.com/riddlework/cs335finalproject
+
+commit ad128200894964782ad25d2503ead84590d23585
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 22:50:42 2024 -0700
+
+    done debugging?
+
+commit 0df9c2a6101e4f3ebc557329a55a3f1dd447bd31
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 22:48:39 2024 -0700
+
+    commented exceptions
+
+commit 554c62dd907df21e2ba319658fcc293e27b2ec07
+Author: dargertlucas <166785902+dargertlucas@users.noreply.github.com>
+Date:   Fri Dec 6 22:47:46 2024 -0700
+
+    Almost finished GUI
+
+commit bf7b9be7e298d893d45d04775ba17921f144b444
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 22:44:52 2024 -0700
+
+    updated controller, model
+
+commit fc92f8010921fac7c3bb8f777ba241f1316f7dea
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 22:42:40 2024 -0700
+
+    changed some stuff
+
+commit fd931cee2b87c8e32d21d43e6c4ef5038ae0d5fe
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 22:32:40 2024 -0700
+
+    finished debugging?
+
+commit db45b0555c6a4f8d9d145974a54a702b880a8b7f
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 22:17:33 2024 -0700
+
+    updated readme
+
+commit 0deb915c3d325c579fa27c8cddb7d715ee668433
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 22:14:34 2024 -0700
+
+    updated stuff
+
+commit 3d1e9440a818860ca9787a76c4bba340c5402343
+Merge: a1861f8 0ed1f51
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 22:12:40 2024 -0700
+
+    Merge remote-tracking branch 'origin/main'
+
+commit a1861f8ff6dd59fae59bcbca1a7d27f45f191a03
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 22:12:31 2024 -0700
+
+    added README, updated model and controller
+
+commit 0ed1f51d9e4607b09aea56e86f0c8b25e55fc5b1
+Merge: 9f430ed 56cfcea
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 21:47:13 2024 -0700
+
+    Merge branch 'main' of https://github.com/riddlework/cs335finalproject
+
+commit 9f430edc296662b5baa9f8d401fa81e93590a80c
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 21:47:00 2024 -0700
+
+    set hand
+
+commit 50ed7d52c5ce98b76897a35e6a4e74fa36bb4fdd
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 21:45:53 2024 -0700
+
+    set hand
+
+commit 56cfceaf0bf749ad484c2b7b88cc3636591b1342
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 21:44:27 2024 -0700
+
+    updates
+
+commit 57a5b09b5b0ed35183fdc044f4764f45b7f79e71
+Merge: 1df339f 8d2dccd
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 21:37:13 2024 -0700
+
+    Merge remote-tracking branch 'origin/main'
+    
+    # Conflicts:
+    #       BoardSquare.java
+    #       Player.java
+
+commit 1df339ff6392fa33c4783aa7be92db9747194dff
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 21:36:25 2024 -0700
+
+    idk what i changed
+
+commit 8d2dccd3a21ca59af498b148716fefcde736ae9f
+Merge: 8a3794f 6b3103a
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 21:33:38 2024 -0700
+
+    debugging
+
+commit 8a3794f096b086cd72421a486a31c47573f1636b
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 21:30:13 2024 -0700
+
+    debugging changes
+
+commit 6b3103addced1b91d5faa5b4a2c008d5e7808389
+Author: dargertlucas <166785902+dargertlucas@users.noreply.github.com>
+Date:   Fri Dec 6 21:29:25 2024 -0700
+
+    Exit button temporarily done
+
+commit 7ed25f022abe0ffedde7b89ed2f0eb1054f5319c
+Author: dargertlucas <166785902+dargertlucas@users.noreply.github.com>
+Date:   Fri Dec 6 21:00:22 2024 -0700
+
+    Update ScrabbleGUI.java
+
+commit 129b3aaa14687ec21cded3e96c008816be40ce73
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 20:47:57 2024 -0700
+
+    added javadoc comments, cleaned up code
+
+commit d165551afe03c28580a1e5b26c6eb1daf1efbc7e
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 19:45:50 2024 -0700
+
+    fixed findGap bug
+
+commit 49ac4ac6bde57923d3a2a16f61af895f3a4fbc57
+Author: dargertlucas <166785902+dargertlucas@users.noreply.github.com>
+Date:   Fri Dec 6 19:28:43 2024 -0700
+
+    Update ScrabbleGUI.java
+
+commit d6400b5632315c93f9fff324c454f451a08afbd9
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 19:24:27 2024 -0700
+
+    added calculate score
+
+commit 587e012b64b30a193d999a8516afa841a829216c
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 19:14:09 2024 -0700
+
+    updated model
+
+commit 554f1dcbc6f9ada507edbc77c0984a0e02867898
+Merge: 16286ac 18d7440
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 19:12:08 2024 -0700
+
+    Merge branch 'main' of https://github.com/riddlework/cs335finalproject
+
+commit 16286aca7747d79138b40cd95f11b985d8a5629d
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 19:11:57 2024 -0700
+
+    fixed constructor
+
+commit 18d74401d1d3945bae87673dad67de086a2cb5d1
+Author: dargertlucas <166785902+dargertlucas@users.noreply.github.com>
+Date:   Fri Dec 6 19:03:33 2024 -0700
+
+    Delete ScrabbleBoard.java
+
+commit ad3d79b10c8e29f312aec0ccef4440f44a7f2b59
+Author: dargertlucas <166785902+dargertlucas@users.noreply.github.com>
+Date:   Fri Dec 6 19:01:47 2024 -0700
+
+    Create ScrabbleGUI.java
+
+commit 8b5cc54c83335586d8d03ddb73e6d4ffe2e1e3ec
+Merge: ae18847 4027518
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 18:59:38 2024 -0700
+
+    Merge branch 'main' of https://github.com/riddlework/cs335finalproject
+
+commit ae18847475ae03118c37ffd37244618981360155
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 18:59:24 2024 -0700
+
+    added functionality for shuffle and getHand
+
+commit 4027518db21c5685aeca40cde2b7ff62d6c3f896
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 18:57:21 2024 -0700
+
+    added random first player functionality
+
+commit 95c2e1f0a83a452bdaa89fe4cc85fad9e6570247
+Author: dargertlucas <166785902+dargertlucas@users.noreply.github.com>
+Date:   Fri Dec 6 18:55:53 2024 -0700
+
+    Update ScrabbleBoard.java
+
+commit 3f35254a4115c99e0e76ac9f1161956c7532eb10
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 18:54:36 2024 -0700
+
+    shuffle and get hand methods
+
+commit 086e8a8c879271c7ac5054832aa2486284343185
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 18:48:48 2024 -0700
+
+    changed curPlayer tracking
+
+commit a8ad8e62c1acf70d5441f418dd14f48c4eedbded
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 18:30:19 2024 -0700
+
+    updated model
+
+commit 787b86d6fbe66abbde65f175ae9dbbe3a3c31559
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 17:54:59 2024 -0700
+
+    added player turn functionality
+
+commit 3595886dae9e4f013712bcad0f4fc0fee940537f
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 17:45:20 2024 -0700
+
+    added replace tile by letter method
+
+commit 75dfe88b18d9818e870c3b411d45711dc34dcb89
+Merge: 0f3dc16 375ce4a
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 17:32:35 2024 -0700
+
+    Merge branch 'main' of https://github.com/riddlework/cs335finalproject
+
+commit 0f3dc162fb9f5ff03a5b88af4a56266f7e030aad
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 17:32:22 2024 -0700
+
+    fixed for testcases
+
+commit 58a8fd2f2d617d7cb2cf70c7e3f081bc9dc27a4b
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 17:31:13 2024 -0700
+
+    added get tile by letter function
+
+commit 375ce4ad3e3d4210139ce84c3de882995fbf4684
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 16:48:11 2024 -0700
+
+    updated constructor
+
+commit e0765aa2fbc8d4c768fd2fcb9772f630ca04949f
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 16:34:04 2024 -0700
+
+    added word validation
+
+commit 8ce4b0863ba49d4e0a2d7a9da1c78580a43dad86
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 15:40:25 2024 -0700
+
+    updated player and tile tests
+
+commit 352db0e6b1421e681a0fab5f325481a0b6c5daaf
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 15:25:05 2024 -0700
+
+    updated draw pile tests
+
+commit 344363aade98a57f1c7a3a96e87e5d9db8426d31
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 15:09:24 2024 -0700
+
+    new tests for Board class
+
+commit a200a11beab4fecbbf6ffd2c7b38e54c9b5b8d6b
+Merge: 09fab8c 8ca9900
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 14:25:49 2024 -0700
+
+    Merge branch 'main' of https://github.com/riddlework/cs335finalproject
+
+commit 09fab8cf334b639578ffcee8ac190f99e43e3478
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 14:25:26 2024 -0700
+
+    new test file for BoardSquare
+
+commit 8ca99008f97e542c67078b3c7f3651cc2e97401f
+Merge: 8507415 f6812db
+Author: Mohamed <126017366+Mohamedlaminedev@users.noreply.github.com>
+Date:   Fri Dec 6 13:36:45 2024 -0700
+
+    Merge pull request #5 from Mohamedlaminedev/mohamed
+    
+    new gui pushed
+
+commit f6812db26e4ee42b2d3961723e5e3be5a27ae3fa
+Author: Maleye Diakhate <maleye20@gmail.com>
+Date:   Fri Dec 6 13:35:17 2024 -0700
+
+    new guis pushed
+
+commit 8507415dbab7f528a287beaf658f80a5b2f61192
+Author: benyurek <benyurek@arizona.edu>
+Date:   Fri Dec 6 13:33:40 2024 -0700
+
+    added addtiles
+
+commit 155db0133cdd868b01b882a6b6084a1cece6ea85
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Fri Dec 6 13:04:24 2024 -0700
+
+    updates
+
+commit cd532e91c3e9a21f08a62fd4949309ad4e745544
+Author: benyurek <benyurek@arizona.edu>
+Date:   Wed Dec 4 16:04:45 2024 -0700
+
+    added score calculating methods
+
+commit 5d6d8b418898cba72304c579e8aa0ddcafad2661
+Author: benyurek <benyurek@arizona.edu>
+Date:   Wed Dec 4 15:49:25 2024 -0700
+
+    fixed the optional thingy?
+
+commit 4a6a41eec3b285235e0f1ffa9f56ca5900b514f1
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Wed Dec 4 15:45:29 2024 -0700
+
+    changed optional thing
+
+commit d31ead83149fb21d6eef1ba562253677481c9bc0
+Merge: 6a53adb 9c91deb
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Wed Dec 4 15:42:17 2024 -0700
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 9c91deb3e5294301612de3d359442c0a9580506c
+Author: benyurek <benyurek@arizona.edu>
+Date:   Wed Dec 4 15:42:00 2024 -0700
+
+    added read methods
+
+commit 6a53adb47b4d83ea66d85e95cc613b2379e10604
+Merge: 228e8cc 9f2afc0
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Wed Dec 4 15:35:46 2024 -0700
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 9f2afc08604d28360debfcd180be95f430459381
+Merge: d179b91 3b75ec8
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Wed Dec 4 15:33:04 2024 -0700
+
+    Merge pull request #4 from riddlework/fay
+    
+    updates
+
+commit d179b9121c366f3fae381cafb44801d0d03723ab
+Author: benyurek <benyurek@arizona.edu>
+Date:   Wed Dec 4 15:32:00 2024 -0700
+
+    updated board methods
+
+commit 228e8ccd0a3b37e37c85c242647889ebc2b9e180
+Merge: 3b75ec8 07a5b89
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Wed Dec 4 15:31:31 2024 -0700
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 3b75ec8d225b6ae46722e35c8a838ac2cc6a5d77
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Wed Dec 4 15:28:52 2024 -0700
+
+    updates
+
+commit f8006c43bacd9022a390ec0e92ac90b2e31fd757
+Merge: 9c339bc 07a5b89
+Author: benyurek <benyurek@arizona.edu>
+Date:   Wed Dec 4 15:20:38 2024 -0700
+
+    Merge branch 'main' of https://github.com/riddlework/cs335finalproject
+
+commit 07a5b89cdf16b1183eac2ec5f8964ba2496603a3
+Author: benyurek <149546012+benyurek@users.noreply.github.com>
+Date:   Wed Dec 4 15:19:35 2024 -0700
+
+    Add files via upload
+
+commit 9c339bc0ba8ee5a34e43165b6db0ba776c799ec1
+Author: benyurek <benyurek@arizona.edu>
+Date:   Wed Dec 4 15:02:55 2024 -0700
+
+    added methods / more functionality to these files
+
+commit c987767735bfe61c51936d208c375fcbe9c1f010
+Merge: a5b7332 0f2ed23
+Author: Mohamed <126017366+Mohamedlaminedev@users.noreply.github.com>
+Date:   Mon Dec 2 15:06:10 2024 -0700
+
+    Merge pull request #3 from Mohamedlaminedev/mohamed
+    
+    Mohamed
+
+commit 0f2ed23117100aefe7ddbea823961d8b0cc2c488
+Author: Maleye Diakhate <maleye20@gmail.com>
+Date:   Mon Dec 2 15:02:04 2024 -0700
+
+    gui push
+
+commit a5b7332e534096ce19c701224f4e5ebf28f337fc
+Merge: ce5619c 6871a62
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Mon Dec 2 14:26:23 2024 -0700
+
+    Merge pull request #2 from riddlework/fay
+    
+    Fay
+
+commit 6871a621ca1e4f48602a34c1e10bb0c49d9da5c2
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Mon Dec 2 14:23:42 2024 -0700
+
+    updated board, boardsquare
+
+commit cb2b2c984ab9b4963fb44412b79d9017bfc053d5
+Author: Maleye Diakhate <maleye20@gmail.com>
+Date:   Tue Nov 26 15:59:40 2024 -0700
+
+    added some Gui control method wich controller will eventually implement logic
+
+commit 9ae8be8d2e726c97d73b667f6af56d7555d2da8a
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Tue Nov 19 09:12:44 2024 -0700
+
+    more updates
+
+commit 27a344fef511250278d1e3add7910af067eaaed9
+Author: Maleye Diakhate <maleye20@gmail.com>
+Date:   Tue Nov 19 08:44:15 2024 -0700
+
+    updated scrabbleboard
+
+commit 1d949a5692fc79c0a0b7788ce801a9a79bbf7d20
+Merge: 633bd87 ce5619c
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Tue Nov 19 08:29:37 2024 -0700
+
+    Merge branch 'main' into fay
+
+commit 633bd872e1f98b1dd2045072ac3b2d2a29745c31
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Tue Nov 19 08:27:20 2024 -0700
+
+    updates
+
+commit e50a778d3c54668c300c2aee77971924e9740390
+Author: Maleye Diakhate <maleye20@gmail.com>
+Date:   Mon Nov 18 16:59:44 2024 -0700
+
+    updated gui
+
+commit ce5619ca7fc68222d4021c3306d6d56996b57d14
+Merge: 1926622 e86b22f
+Author: benyurek <benyurek@arizona.edu>
+Date:   Mon Nov 18 14:36:46 2024 -0700
+
+    Merge branch 'main' of https://github.com/riddlework/cs335finalproject
+
+commit 19266227743f2b0eaaa75e7f4010c29d11af5a62
+Author: benyurek <benyurek@arizona.edu>
+Date:   Mon Nov 18 14:36:27 2024 -0700
+
+    updated versions after 11/18 meeting
+
+commit cdd03c5174751ea2265a6bf730c8c11d54a610e9
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Mon Nov 18 14:06:29 2024 -0700
+
+    start working on files
+
+commit e86b22feae41061b3178085eaa0ad4110e37c3d0
+Author: riddlework <82472185+riddlework@users.noreply.github.com>
+Date:   Mon Nov 18 13:26:09 2024 -0700
+
+    initialized board files
+
+commit 4d84cc55395c324ade009661d92afb135459e80b
+Author: benyurek <benyurek@arizona.edu>
+Date:   Sun Nov 17 19:41:41 2024 -0700
+
+    first stages of developing supporting classes
+
+commit aae388eaa4d5fed6f47c6c5b2ff92acbe6500a7e
+Author: benyurek <149546012+benyurek@users.noreply.github.com>
+Date:   Sun Nov 17 18:04:27 2024 -0700
+
+    Create Player.java
