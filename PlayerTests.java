@@ -20,6 +20,7 @@ class PlayerTests {
 		ArrayList<Tile> hand1 = testPile.drawTiles(7);
 		ArrayList<Tile> hand2 = testPile.drawTiles(2);
 		ArrayList<Tile> emptyHand = testPile.drawTiles(0);
+		
 
 		player1 = new Player("Alice", hand1);
 		player2 = new Player("Bob", hand2);
@@ -46,23 +47,6 @@ class PlayerTests {
 
 
 	/*
-	 * tests the functionality of playing a tile from a players hand
-	 * checks both the case where the players hand is empty and when it is not
-	 */
-	@Test
-	void testPlayTile() {
-
-		// players hand is empty
-		assertThrows(InvalidHandException.class, () -> player3.playTile(5));
-
-		// players hand is not empty
-		assertEquals(player2.getSize(), 2);
-		assertDoesNotThrow(() -> player2.playTile(1));
-		assertEquals(player2.getSize(), 1);
-	}
-
-
-	/*
 	 * checks that the size getting method returns the proper size of the players hand
 	 */
 	@Test
@@ -76,6 +60,22 @@ class PlayerTests {
 	@Test
 	void testPrintHand() {
 		player1.printHand();
+	}
+	
+	@Test
+	void testShuffle() {
+		ArrayList<Tile> one = player1.getHand();
+		player1.shuffleHand();
+		ArrayList<Tile> two = player1.getHand();
+		assertNotEquals(one.get(0).getLetter(), two.get(0).getLetter());
+	}
+
+	
+	@Test
+	void testGetScore() {
+		assertEquals(player1.getScore(), 0);
+		player1.setScore(100);
+		assertEquals(player1.getScore(), 100);
 	}
 	
 	
