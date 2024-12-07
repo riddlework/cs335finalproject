@@ -1,3 +1,8 @@
+/**
+ * Author(s): Ben Yurek, Maria Fay Garcia, Lucas Dargert, Mohamed Diakhate
+ * File: ScrabbleModel.java
+ * Course: CSC335
+ */
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,6 +11,9 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This is the model class and handles the back-end of the scrabble game
+ */
 public class ScrabbleModel {
     private Board board;
     private Player p1;
@@ -14,6 +22,9 @@ public class ScrabbleModel {
     private DrawPile drawPile;
     private ArrayList<String> dictionary;
 
+    /**
+     * Initialize the scrabble model along with the players, board, draw pile, etc.
+     */
     public ScrabbleModel() {
         // initialize dictionary
         dictionary = initDictionary();
@@ -36,7 +47,11 @@ public class ScrabbleModel {
         else curPlayer = p2;
     }
 
-    // initialize the dictionary that is used to validate the words
+
+    /**
+     * Initialize the dictionary that is used to validate the words
+     * @return an ArrayList of Strings, the dictionary used to validate words
+     */
     private ArrayList<String> initDictionary() {
     	ArrayList<String> newDict = new ArrayList<>();
         try {
@@ -48,6 +63,14 @@ public class ScrabbleModel {
         return newDict;
     }
 
+    /**
+     * Checks if the placement of a word is valid
+     * @param x1 an int--the first x-coordinate of the placement
+     * @param y1 an int--the first y-coordinate of the placement
+     * @param x2 an int--the second x-coordinate of the placement
+     * @param y2 an int--the second y-coordinate of the placement
+     * @return a boolean--whether or not the placement was valid
+     */
     private boolean isValidPlacement(int x1, int y1, int x2, int y2) {
         int ts, te; // true start, true end
         String word;
@@ -127,6 +150,15 @@ public class ScrabbleModel {
         } return true;
     }
 
+    /**
+     * Calculate the score of a placement
+     * @param x1 an int--the first x-coordinate of the placement
+     * @param y1 an int--the first y-coordinate of the placement
+     * @param x2 an int--the second x-coordinate of the placement
+     * @param y2 an int--the second y-coordinate of the placement
+     * @param startScore an int--the starting score
+     * @return an int-- the updated score
+     */
     private int calculateScore(int x1, int y1, int x2, int y2, int startScore) {
         int ts, te;
         if (x1 == x2) {
@@ -170,6 +202,14 @@ public class ScrabbleModel {
         } return startScore;
     }
 
+    /**
+     * get the score of a word
+     * @param x1 an int--the first x-coordinate of the placement
+     * @param y1 an int--the first y-coordinate of the placement
+     * @param x2 an int--the second x-coordinate of the placement
+     * @param y2 an int--the second y-coordinate of the placement
+     * @return an int--the score of the word, factoring in multipliers
+     */
     private int getWordScore(int x1, int x2, int y1, int y2) {
         int score = 0;
         if (x1 == x2) {
@@ -187,7 +227,14 @@ public class ScrabbleModel {
         } return score;
     }
 
-    
+    /**
+     * Find the ends of a word
+     * @param x an int--the x coordinate
+     * @param y an int--the y coordinate
+     * @param x_vec an int--whether to go forwards or backwards
+     * @param y_vec an int--whether to go forwards or backwards
+     * @return an int--the desired index at the end of the word
+     */
     private int findGap(int x, int y, int x_vec, int y_vec) {
         while(board.getBoardSquare(x,y).hasTile()) {
             x = x + x_vec;
@@ -198,6 +245,14 @@ public class ScrabbleModel {
     }
 
 
+    /**
+     * build a word given starting and ending indices
+     * @param x1 an int--the first x-coordinate of the placement
+     * @param y1 an int--the first y-coordinate of the placement
+     * @param x2 an int--the second x-coordinate of the placement
+     * @param y2 an int--the second y-coordinate of the placement
+     * @return a String--the word
+     */
     private String buildWord(int x1, int x2, int y1, int y2) {
         String word = "";
         if (x1 == x2) {
@@ -216,14 +271,12 @@ public class ScrabbleModel {
     }
 
     
-    
-    
-    
-    
-    
-    
 
-    // returns whether placement was invalid or not--if invalid it is still the given player's turn
+    /**
+     * play a complete players turn--placement, validation, and score calculation
+     * @param placementInfo the coordinates and letters to be placed at those coordinates
+     * @return a boolean--whether the player's placement was valid or not
+     */
     public boolean playerTurn(HashMap<Point,Character> placementInfo) {
 
         // add tiles to the board from the players hand
@@ -273,6 +326,10 @@ public class ScrabbleModel {
         return true;
     }
 
+    /**
+     * swap the player's desired tiles
+     * @param tilesToBeSwapped an array list of characters--the tiles the player desires to swap
+     */
     public void swapTiles(ArrayList<Character> tilesToBeSwapped) {
         for (Character letter: tilesToBeSwapped) {
             try {
@@ -283,37 +340,67 @@ public class ScrabbleModel {
         }
     }
 
+    /**
+     * switch players
+     */
     public void switchPlayers() {
         if (curPlayer == p1) curPlayer = p2;
         else curPlayer = p1;
     }
-    
-    
+
+    /**
+     * shuffle the players hand
+     */
     public void shufflePlayerHand() {
     	curPlayer.shuffleHand();
     }
-    
-    
+
+    /**
+     * return the player's hand of tiles
+     * @param player the player whose hand we want
+     * @return an arraylist--the tiles that make up the player's hand
+     */
     public ArrayList<Tile> getPlayerHand(Player player) {
     	return player.getHand();
     }
 
     // return the current players score
+
+    /**
+     * return the current player's score
+     * @return an int--the current player's score
+     */
     public int getCurPlayerScore() {
         return curPlayer.getScore();
     }
 
-    
+
+    /**
+     * set the player's hand to the given tiles
+     * this function is for unit testing purposes
+     * @param hand an arraylist of tiles--the tiles to set the player's hand to
+     */
     public void setPlayerHand(ArrayList<Tile> hand) {
     	p1.setHand(hand);
     }
-    
-    
+
+
+    /**
+     * set player 1 to start the game
+     * this function is for unit testing purposes
+     */
     public void setStartP1() {
     	curPlayer = p1;
     }
 
 
+    /**
+     * return the winner
+     *  0 -- TIE
+     *  1 -- PLAYER 1
+     *  2 -- PLAYER 2
+     * @return an int representing the player who won
+     */
     public int getWinner() {
         int p1Score = p1.getScore();
         int p2Score = p2.getScore();
@@ -322,19 +409,35 @@ public class ScrabbleModel {
         else return 0;
     }
 
+    /**
+     * return the score of player one
+     * @return an int--player 1's score
+     */
     public int getPlayerOneScore() {
         return p1.getScore();
     }
 
+    /**
+     * return the score of player two
+     * @return an int--player 2's score
+     */
     public int getPlayerTwoScore() {
         return p2.getScore();
     }
 
+    /**
+     * get the hand of the current player
+     * @return an array
+     */
     public ArrayList<Tile> getCurPlayerHand() {
         return curPlayer.getHand();
     }
-    	
-    
+
+
+    /**
+     * return the current player
+     * @return A player object--the current player
+     */
     public Player getCurPlayer() {
     	return curPlayer;
     }
