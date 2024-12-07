@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 /*
@@ -95,7 +96,15 @@ public class Player {
 		}
 	}
 
-	public ArrayList<Tile> getHand() { return this.hand; }
+	/*
+	 * returns a copy of the players hand to the caller
+	 */
+	public ArrayList<Tile> getHand() { 
+		
+		ArrayList<Tile> copy = new ArrayList<>();
+		for (Tile t : hand) copy.add(t);
+		return copy; 
+	}
 	
 	/*
 	 * returns the first tile with a matching letter to the parameter that was passed
@@ -115,6 +124,14 @@ public class Player {
 		for (int i=0; i<hand.size(); i++) {
 			if (hand.get(i).getLetter() == c) hand.add(i, newTile);
 		}
+	}
+	
+	
+	/*
+	 * shuffles the tiles in the players hand 
+	 */
+	public void shuffleHand() {
+		Collections.shuffle(hand);
 	}
 	
 	
