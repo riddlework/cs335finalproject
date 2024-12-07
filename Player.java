@@ -115,4 +115,9 @@ public class Player {
 			System.out.println((i+1) + "Char: " + cur.getLetter() + "     Points: " + cur.getPoints());
 		}
 	}
+	
+	public void setHand(ArrayList<Tile> hand) {
+		this.hand = hand;
+	}
+	
 }
